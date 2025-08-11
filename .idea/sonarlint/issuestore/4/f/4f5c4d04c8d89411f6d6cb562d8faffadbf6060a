@@ -1,0 +1,16 @@
+
+}
+java:S1141l"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8³—±Ð‰3J$fce8cd57-bae8-4b8e-8245-b0b0fa88a11b
+p
+java:S1948"(Make "socket" transient or serializable.(Å’¬Úþÿÿÿÿ8Æ˜±Ð‰3J$fcbf1f65-fd03-4ba6-b9c4-45d8cb44ca83
+h
+java:S1948"%Make "dos" transient or serializable.(“«Ëÿ8Æ˜±Ð‰3J$7e0d25ea-bf19-4a3c-8621-72d582a1e91b
+m
+java:S1948"%Make "dis" transient or serializable.(ÌÝÎßüÿÿÿÿ8Æ˜±Ð‰3J$8904c476-0ddc-49ff-9d55-0f9ed28379bd
+m
+java:S1948"*Make "sendLock" transient or serializable.(ê˜þÒ8Ç˜±Ð‰3J$b2e93bd1-18b2-4078-afd8-b379220e7c40
+‘
+java:S3252!"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(Õû»öþÿÿÿÿ8Õ˜±Ð‰3J$5866033e-d4ee-4fcc-824d-fafef9491920
+q	java:S108è")Either remove or fill this block of code.(õ÷£ðúÿÿÿÿ8Š™±Ð‰3J$4d7f09bd-f1ae-48f0-a7b1-7dea944f4de9
+q	java:S108ë")Either remove or fill this block of code.(õ÷£ðúÿÿÿÿ8‹™±Ð‰3J$f6f19aa6-bc74-4ad6-8ad8-544d37781424
+q	java:S108ï")Either remove or fill this block of code.(õ÷£ðúÿÿÿÿ8Œ™±Ð‰3J$e2f65735-f842-4cc7-a9f8-85919ef1234a
