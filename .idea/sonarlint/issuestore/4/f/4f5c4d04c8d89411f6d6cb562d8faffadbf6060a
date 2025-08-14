@@ -1,16 +1,16 @@
 
-}
-java:S1141l"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8³—±Ğ‰3J$fce8cd57-bae8-4b8e-8245-b0b0fa88a11b
+‰
+java:S11929"FDefine a constant instead of duplicating this literal "Todos" 4 times.(İÊ¹«8ŠÊ¨ËŠ3J$a649db7d-24a4-470b-ba8d-3f15dfe0129a
+
+java:S1659"HDeclare "campoPuerto" and all following declarations on a separate line.(²Ó”…üÿÿÿÿ8‚Ì¨ËŠ3J$1ac6c1d9-38bc-4033-8675-bba47d87f8a6
+
+java:S1659"KDeclare "btnDesconectar" and all following declarations on a separate line.(ùÙöÑ8‚Ì¨ËŠ3J$056a7892-65bf-4745-a35d-166896d08514
 p
-java:S1948"(Make "socket" transient or serializable.(Å’¬Úşÿÿÿÿ8Æ˜±Ğ‰3J$fcbf1f65-fd03-4ba6-b9c4-45d8cb44ca83
+java:S1948"(Make "socket" transient or serializable.(Å’¬Úşÿÿÿÿ8ƒÌ¨ËŠ3J$027d7a30-0e0e-442e-a427-59c7c5c9b4bb
 h
-java:S1948"%Make "dos" transient or serializable.(“«Ëÿ8Æ˜±Ğ‰3J$7e0d25ea-bf19-4a3c-8621-72d582a1e91b
+java:S1948"%Make "dos" transient or serializable.(“«Ëÿ8ƒÌ¨ËŠ3J$74bc02fe-c59b-410c-8330-33837e1b9664
 m
-java:S1948"%Make "dis" transient or serializable.(ÌİÎßüÿÿÿÿ8Æ˜±Ğ‰3J$8904c476-0ddc-49ff-9d55-0f9ed28379bd
-m
-java:S1948"*Make "sendLock" transient or serializable.(ê˜şÒ8Ç˜±Ğ‰3J$b2e93bd1-18b2-4078-afd8-b379220e7c40
-‘
-java:S3252!"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(Õû»öşÿÿÿÿ8Õ˜±Ğ‰3J$5866033e-d4ee-4fcc-824d-fafef9491920
-q	java:S108è")Either remove or fill this block of code.(õ÷£ğúÿÿÿÿ8Š™±Ğ‰3J$4d7f09bd-f1ae-48f0-a7b1-7dea944f4de9
-q	java:S108ë")Either remove or fill this block of code.(õ÷£ğúÿÿÿÿ8‹™±Ğ‰3J$f6f19aa6-bc74-4ad6-8ad8-544d37781424
-q	java:S108ï")Either remove or fill this block of code.(õ÷£ğúÿÿÿÿ8Œ™±Ğ‰3J$e2f65735-f842-4cc7-a9f8-85919ef1234a
+java:S1948"%Make "dis" transient or serializable.(ÌİÎßüÿÿÿÿ8ƒÌ¨ËŠ3J$e53c0b98-b9bc-4b8c-85c8-2a8cbb1b27bc
+
+java:S2674Õ"JCheck the return value of the "read" call to see how many bytes were read.(ò·ƒ®8 Ì¨ËŠ3J$0b34d9a7-b6e0-4cdb-8d8a-c7f63daa2425
+q	java:S108é")Either remove or fill this block of code.(õ÷£ğúÿÿÿÿ8¢Ì¨ËŠ3J$e575c4a6-04d1-4ceb-93e2-53c671185bf1

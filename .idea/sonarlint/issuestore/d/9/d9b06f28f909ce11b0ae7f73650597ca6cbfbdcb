@@ -1,21 +1,20 @@
 
-}
-java:S1141~"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8²¢®Ğ‰3J$e0dfeed3-9bfe-40ca-beec-35b66adafa10
+r
+java:S1659"*Declare "campoMensaje" on a separate line.(èÂãüÿÿÿÿ8ö¥¨ËŠ3J$32c9dae9-8985-409b-a56e-5c1ecee3b36c
+
+java:S1659"GDeclare "btnDetener" and all following declarations on a separate line.(€ãŞ§ıÿÿÿÿ8÷¥¨ËŠ3J$59b7e0fc-2f9c-4b14-9ea6-abc4514b437a
 v
-java:S1948".Make "serverSocket" transient or serializable.(“—Ó¿ıÿÿÿÿ8¤¤®Ğ‰3J$ceecc042-6191-490a-b5bd-546c7b654750
-p
-java:S1948".Make "clientSocket" transient or serializable.(ó’ª~8¤¤®Ğ‰3J$7cacc36a-46fa-41c3-b853-00485729b9b6
-h
-java:S1948"%Make "dos" transient or serializable.(“«Ëÿ8¥¤®Ğ‰3J$48b4a6f5-ee39-4f1e-90a3-ac2bdfe1eba2
+java:S1948".Make "serverSocket" transient or serializable.(“—Ó¿ıÿÿÿÿ8ø¥¨ËŠ3J$014b1279-d30a-4782-9364-04a71adbfd0c
 m
-java:S1948"%Make "dis" transient or serializable.(ÌİÎßüÿÿÿÿ8¥¤®Ğ‰3J$be1f6fb4-fe0c-49f6-8746-13b137e981b4
-m
-java:S1948"*Make "sendLock" transient or serializable.(ê˜şÒ8¥¤®Ğ‰3J$afdb0da8-d77d-4b59-a09b-e4032919611c
-‘
-java:S3252""IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(Õû»öşÿÿÿÿ8®¤®Ğ‰3J$d97d7036-532b-46a2-b4ef-99c24e7a149e
-•
-java:S3776?"RRefactor this method to reduce its Cognitive Complexity from 26 to the 15 allowed.(”Ò½ó8´¤®Ğ‰3J$ede5ee55-a3fd-4c7d-8eb5-dc0e6f1c1b1e
-q	java:S108ù")Either remove or fill this block of code.(õ÷£ğúÿÿÿÿ8Ñ¤®Ğ‰3J$ded9ec37-7623-4d85-90a8-7c3d74807a5e
-q	java:S108‚")Either remove or fill this block of code.(õ÷£ğúÿÿÿÿ8Ó¤®Ğ‰3J$ef80a4f7-a476-4b9e-9a65-af3d9a4f044f
-q	java:S108…")Either remove or fill this block of code.(õ÷£ğúÿÿÿÿ8Ô¤®Ğ‰3J$257dffdf-7b77-4a57-bd35-eedc1dbcc9d7
-q	java:S108‰")Either remove or fill this block of code.(õ÷£ğúÿÿÿÿ8Ô¤®Ğ‰3J$ef672685-d3bc-4ea1-9924-10fc351caf3e
+java:S1948"*Make "sendLock" transient or serializable.(ê˜şÒ8ø¥¨ËŠ3J$b5663375-e2e5-46e3-a8b1-76fe17104c32
+q	java:S108€")Either remove or fill this block of code.(õ÷£ğúÿÿÿÿ8‰¦¨ËŠ3J$5bf5dfb8-7403-408b-8308-1c91b7d05d55
+–
+java:S3776Â"RRefactor this method to reduce its Cognitive Complexity from 42 to the 15 allowed.(“–ış8¦¨ËŠ3J$42efda87-b677-4fdf-93b4-1529ec669a1c
+s
+java:S2093Ã"*Change this "try" to a try-with-resources.(¡»¢üùÿÿÿÿ8—¦¨ËŠ3J$490759dc-c1c4-470c-b811-028a6d8b1d0b
+
+java:S2674’"JCheck the return value of the "read" call to see how many bytes were read.(ò·ƒ®8š¦¨ËŠ3J$a99ea350-5fb3-47e3-ba91-5c014264a620
+q	java:S108±")Either remove or fill this block of code.(õ÷£ğúÿÿÿÿ8¦¨ËŠ3J$b81dc5ee-ea73-48a8-a748-2ad39f3aafd7
+q	java:S108¿")Either remove or fill this block of code.(õ÷£ğúÿÿÿÿ8¦¨ËŠ3J$87576d37-f55a-40fa-8c4d-c4b10ce8e738
+k
+java:S3398¸"'Move this method into "ClienteHandler".(Ñ¬±•8Ÿ¦¨ËŠ3J$81fe7633-0abd-4e56-8971-76d197f16d98
