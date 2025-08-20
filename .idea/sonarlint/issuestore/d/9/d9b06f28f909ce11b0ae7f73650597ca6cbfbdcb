@@ -1,20 +1,20 @@
 
 r
-java:S1659"*Declare "campoMensaje" on a separate line.(θΒγόÿÿÿÿ8φ¥¨Λ3J$32c9dae9-8985-409b-a56e-5c1ecee3b36c
+java:S1659"*Declare "campoMensaje" on a separate line.(θΒγόÿÿÿÿ8φ¥¨Λ3J$26049c0e-ce8b-428c-920c-2ec69351e24f
 
-java:S1659"GDeclare "btnDetener" and all following declarations on a separate line.(€γή§ύÿÿÿÿ8χ¥¨Λ3J$59b7e0fc-2f9c-4b14-9ea6-abc4514b437a
+java:S1659"GDeclare "btnDetener" and all following declarations on a separate line.(€γή§ύÿÿÿÿ8χ¥¨Λ3J$99780575-8bf1-4465-837a-3fdc220c69e1
 v
-java:S1948".Make "serverSocket" transient or serializable.(“—ΣΏύÿÿÿÿ8ψ¥¨Λ3J$014b1279-d30a-4782-9364-04a71adbfd0c
+java:S1948".Make "serverSocket" transient or serializable.(“—ΣΏύÿÿÿÿ8ψ¥¨Λ3J$5edfbb05-6d48-43c2-aa7b-22de0ce3ecd8
 m
-java:S1948"*Make "sendLock" transient or serializable.(κώÒ8ψ¥¨Λ3J$b5663375-e2e5-46e3-a8b1-76fe17104c32
-q	java:S108€")Either remove or fill this block of code.(υχ£πϊÿÿÿÿ8‰¦¨Λ3J$5bf5dfb8-7403-408b-8308-1c91b7d05d55
+java:S1948"*Make "sendLock" transient or serializable.(κώÒ8ψ¥¨Λ3J$d44b9197-3a9e-4d25-a113-53e74e76148e
+q	java:S108€")Either remove or fill this block of code.(υχ£πϊÿÿÿÿ8‰¦¨Λ3J$6b03824a-6e0d-4c9d-a95e-84e31905542b
 –
-java:S3776Β"RRefactor this method to reduce its Cognitive Complexity from 42 to the 15 allowed.(“–ύώ8¦¨Λ3J$42efda87-b677-4fdf-93b4-1529ec669a1c
+java:S3776Β"RRefactor this method to reduce its Cognitive Complexity from 42 to the 15 allowed.(“–ύώ8¦¨Λ3J$a4a317b1-b17d-4521-9393-472fc2b519cb
 s
-java:S2093Γ"*Change this "try" to a try-with-resources.(΅»Άόωÿÿÿÿ8—¦¨Λ3J$490759dc-c1c4-470c-b811-028a6d8b1d0b
+java:S2093Γ"*Change this "try" to a try-with-resources.(΅»Άόωÿÿÿÿ8—¦¨Λ3J$28cdeaed-c69d-4236-973d-62c816a84076
 
-java:S2674’"JCheck the return value of the "read" call to see how many bytes were read.(ς·ƒ®8¦¨Λ3J$a99ea350-5fb3-47e3-ba91-5c014264a620
-q	java:S108±")Either remove or fill this block of code.(υχ£πϊÿÿÿÿ8¦¨Λ3J$b81dc5ee-ea73-48a8-a748-2ad39f3aafd7
-q	java:S108Ώ")Either remove or fill this block of code.(υχ£πϊÿÿÿÿ8¦¨Λ3J$87576d37-f55a-40fa-8c4d-c4b10ce8e738
+java:S2674’"JCheck the return value of the "read" call to see how many bytes were read.(ς·ƒ®8¦¨Λ3J$975b3d85-5ca4-4f8c-86b5-883b80f799df
+q	java:S108±")Either remove or fill this block of code.(υχ£πϊÿÿÿÿ8¦¨Λ3J$ca29a398-3b43-4aea-9a25-87e133731d69
+q	java:S108Ώ")Either remove or fill this block of code.(υχ£πϊÿÿÿÿ8¦¨Λ3J$dd9ba304-5974-4590-8378-698ecc01f96c
 k
-java:S3398Έ"'Move this method into "ClienteHandler".(Ρ¬±•8¦¨Λ3J$81fe7633-0abd-4e56-8971-76d197f16d98
+java:S3398Έ"'Move this method into "ClienteHandler".(Ρ¬±•8¦¨Λ3J$d463f91c-b107-4d81-84b6-ad0304b0c462
