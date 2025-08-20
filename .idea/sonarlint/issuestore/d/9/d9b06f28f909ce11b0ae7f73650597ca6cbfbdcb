@@ -1,20 +1,21 @@
 
-r
-java:S1659"*Declare "campoMensaje" on a separate line.(èÂãüÿÿÿÿ8ö¥¨ËŠ3J$32c9dae9-8985-409b-a56e-5c1ecee3b36c
-
-java:S1659"GDeclare "btnDetener" and all following declarations on a separate line.(€ãŞ§ıÿÿÿÿ8÷¥¨ËŠ3J$59b7e0fc-2f9c-4b14-9ea6-abc4514b437a
+}
+java:S1141~"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8ãùÌÃŒ3J$524e0d83-43e6-48a8-b5e1-102225d41ae8
 v
-java:S1948".Make "serverSocket" transient or serializable.(“—Ó¿ıÿÿÿÿ8ø¥¨ËŠ3J$014b1279-d30a-4782-9364-04a71adbfd0c
+java:S1948".Make "serverSocket" transient or serializable.(“—Ó¿ıÿÿÿÿ8¬ûÌÃŒ3J$3fcb9a33-d17f-46e8-9e24-cb60b035789a
+p
+java:S1948".Make "clientSocket" transient or serializable.(ó’ª~8­ûÌÃŒ3J$6af7736b-cc51-46b3-a992-2f759f6d31c9
+h
+java:S1948"%Make "dos" transient or serializable.(“«Ëÿ8­ûÌÃŒ3J$6b49b43e-dbea-46f9-b58c-abe8b24936b0
 m
-java:S1948"*Make "sendLock" transient or serializable.(ê˜şÒ8ø¥¨ËŠ3J$b5663375-e2e5-46e3-a8b1-76fe17104c32
-q	java:S108€")Either remove or fill this block of code.(õ÷£ğúÿÿÿÿ8‰¦¨ËŠ3J$5bf5dfb8-7403-408b-8308-1c91b7d05d55
-–
-java:S3776Â"RRefactor this method to reduce its Cognitive Complexity from 42 to the 15 allowed.(“–ış8¦¨ËŠ3J$42efda87-b677-4fdf-93b4-1529ec669a1c
-s
-java:S2093Ã"*Change this "try" to a try-with-resources.(¡»¢üùÿÿÿÿ8—¦¨ËŠ3J$490759dc-c1c4-470c-b811-028a6d8b1d0b
-
-java:S2674’"JCheck the return value of the "read" call to see how many bytes were read.(ò·ƒ®8š¦¨ËŠ3J$a99ea350-5fb3-47e3-ba91-5c014264a620
-q	java:S108±")Either remove or fill this block of code.(õ÷£ğúÿÿÿÿ8¦¨ËŠ3J$b81dc5ee-ea73-48a8-a748-2ad39f3aafd7
-q	java:S108¿")Either remove or fill this block of code.(õ÷£ğúÿÿÿÿ8¦¨ËŠ3J$87576d37-f55a-40fa-8c4d-c4b10ce8e738
-k
-java:S3398¸"'Move this method into "ClienteHandler".(Ñ¬±•8Ÿ¦¨ËŠ3J$81fe7633-0abd-4e56-8971-76d197f16d98
+java:S1948"%Make "dis" transient or serializable.(ÌİÎßüÿÿÿÿ8­ûÌÃŒ3J$d195d403-7fac-4b1e-8c0b-3e9beffa2a3d
+m
+java:S1948"*Make "sendLock" transient or serializable.(ê˜şÒ8­ûÌÃŒ3J$d246a79c-4231-46a0-a863-713f210d9ba0
+‘
+java:S3252""IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(Õû»öşÿÿÿÿ8¹ûÌÃŒ3J$837a4b37-fac3-481f-a70d-56208426645d
+•
+java:S3776?"RRefactor this method to reduce its Cognitive Complexity from 26 to the 15 allowed.(”Ò½ó8ÀûÌÃŒ3J$c8de7656-c2d4-4582-a95d-767b4d288387
+q	java:S108ù")Either remove or fill this block of code.(õ÷£ğúÿÿÿÿ8áûÌÃŒ3J$073ec615-434b-481d-bdd1-aa7246aec771
+q	java:S108‚")Either remove or fill this block of code.(õ÷£ğúÿÿÿÿ8ãûÌÃŒ3J$f2a5de55-0c0a-4015-b5f7-0c4d7535cf85
+q	java:S108…")Either remove or fill this block of code.(õ÷£ğúÿÿÿÿ8ãûÌÃŒ3J$441a5e1f-52e5-43c3-ab51-be21e3a43422
+q	java:S108‰")Either remove or fill this block of code.(õ÷£ğúÿÿÿÿ8äûÌÃŒ3J$7bb4cf36-31cc-4800-ac4c-8d7f8b21e8e1
