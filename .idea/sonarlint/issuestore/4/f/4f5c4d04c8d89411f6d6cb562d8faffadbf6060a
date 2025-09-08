@@ -1,16 +1,16 @@
 
-‰
-java:S11929"FDefine a constant instead of duplicating this literal "Todos" 4 times.(İÊ¹«8ŠÊ¨ËŠ3J$3761dbbb-761e-44c2-96ce-b35b9302dc35
-
-java:S1659"HDeclare "campoPuerto" and all following declarations on a separate line.(²Ó”…üÿÿÿÿ8‚Ì¨ËŠ3J$488bc20a-d85f-4c58-a253-2ba1efdc97fd
-
-java:S1659"KDeclare "btnDesconectar" and all following declarations on a separate line.(ùÙöÑ8‚Ì¨ËŠ3J$daeb94c1-89a1-4b36-a6ea-6b9a961e240e
-p
-java:S1948"(Make "socket" transient or serializable.(Å’¬Úşÿÿÿÿ8ƒÌ¨ËŠ3J$dc211596-38c9-4c89-b352-5946c724e933
+c
+java:S11929"FDefine a constant instead of duplicating this literal "Todos" 4 times.(İÊ¹«8…¼õÃŒ3
+j
+java:S1659"HDeclare "campoPuerto" and all following declarations on a separate line.(²Ó”…üÿÿÿÿ8¤¾õÃŒ3
 h
-java:S1948"%Make "dos" transient or serializable.(“«Ëÿ8ƒÌ¨ËŠ3J$8827d4bc-1f91-4dc5-84e6-0aab57d0cde4
-m
-java:S1948"%Make "dis" transient or serializable.(ÌİÎßüÿÿÿÿ8ƒÌ¨ËŠ3J$2fb4506e-c697-4d88-b960-9c370a60670f
-
-java:S2674Õ"JCheck the return value of the "read" call to see how many bytes were read.(ò·ƒ®8 Ì¨ËŠ3J$63a00564-e504-4ae6-9dbd-20f7e3eeb0aa
-q	java:S108é")Either remove or fill this block of code.(õ÷£ğúÿÿÿÿ8¢Ì¨ËŠ3J$f3102520-1db1-4954-921b-8cecfc1ee428
+java:S1659"KDeclare "btnDesconectar" and all following declarations on a separate line.(ùÙöÑ8¥¾õÃŒ3
+J
+java:S1948"(Make "socket" transient or serializable.(Å’¬Úşÿÿÿÿ8§¾õÃŒ3
+B
+java:S1948"%Make "dos" transient or serializable.(“«Ëÿ8§¾õÃŒ3
+G
+java:S1948"%Make "dis" transient or serializable.(ÌİÎßüÿÿÿÿ8§¾õÃŒ3
+h
+java:S2674Õ"JCheck the return value of the "read" call to see how many bytes were read.(ò·ƒ®8Æ¾õÃŒ3
+K	java:S108é")Either remove or fill this block of code.(õ÷£ğúÿÿÿÿ8É¾õÃŒ3
