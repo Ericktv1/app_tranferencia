@@ -103,7 +103,7 @@ public class PrincipalCli extends JFrame {
             if (maxA != null) maxAttempts = Integer.parseInt(maxA.trim());
             if (delay != null) delaySeconds = Integer.parseInt(delay.trim());
 
-            appendMensaje("Propiedades cargadas. maxAttempts=" + maxAttempts +
+            System.out.println("Propiedades cargadas. maxAttempts=" + maxAttempts +
                     ", delaySeconds=" + delaySeconds + "\n");
         } catch (Exception e) {
             appendMensaje("Error cargando propiedades: " + e.getMessage() + "\n");

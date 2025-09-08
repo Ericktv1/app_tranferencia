@@ -1,26 +1,27 @@
 
 ‰
-java:S1192@"FDefine a constant instead of duplicating this literal "Todos" 4 times.(İÊ¹«8Ÿ·î×’3J$d810ae9c-e005-439f-86a4-571d5de7264e
+java:S1192@"FDefine a constant instead of duplicating this literal "Todos" 4 times.(İÊ¹«8—µØ’3J$bb721fa8-505c-47b0-95f5-afcee33523bb
 
-java:S2095—"DUse try-with-resources or close this "Socket" in a "finally" clause.(Šé¤×øÿÿÿÿ8Ã»î×’3J$ca738d31-28c7-400d-ba2d-450d58e25f18
+java:S2095—"DUse try-with-resources or close this "Socket" in a "finally" clause.(Šé¤×øÿÿÿÿ8ƒ›µØ’3J$013143c1-1ec0-4e81-a606-fc821b888ba0
 
-java:S1659"HDeclare "campoPuerto" and all following declarations on a separate line.(²Ó”…üÿÿÿÿ8Ø»î×’3J$a45bcccd-db9f-45f4-ab6a-0d2dbd1ea6bc
+java:S1659"HDeclare "campoPuerto" and all following declarations on a separate line.(²Ó”…üÿÿÿÿ8‰›µØ’3J$11644e41-a763-4ef2-a889-c70a4e58dd1f
 
-java:S1659"KDeclare "btnDesconectar" and all following declarations on a separate line.(ùÙöÑ8á»î×’3J$0c112963-bc3d-44c9-8917-36133e3dbc21
+java:S1659"KDeclare "btnDesconectar" and all following declarations on a separate line.(ùÙöÑ8‰›µØ’3J$f1a3ca29-a566-4095-ad91-3923aff06f4d
 p
-java:S1948"(Make "socket" transient or serializable.(Å’¬Úşÿÿÿÿ8ê»î×’3J$715eb076-6c4f-46c7-8011-7c9b1215999a
+java:S1948"(Make "socket" transient or serializable.(Å’¬Úşÿÿÿÿ8Œ›µØ’3J$d56fe82c-ab4c-4dee-910d-ac368a49961f
 h
-java:S1948"%Make "dos" transient or serializable.(“«Ëÿ8ë»î×’3J$1ab26b96-9b86-4248-97d8-042f6c06364d
+java:S1948"%Make "dos" transient or serializable.(“«Ëÿ8Œ›µØ’3J$bea9b419-1a4d-4a16-9b3e-ee41f9cfaf87
 m
-java:S1948"%Make "dis" transient or serializable.(ÌİÎßüÿÿÿÿ8õ»î×’3J$b9761731-2e9d-4b16-af1c-50a99c89585f
+java:S1948"%Make "dis" transient or serializable.(ÌİÎßüÿÿÿÿ8Œ›µØ’3J$21875a48-4387-41d0-a4d3-69302af5a334
 r
-java:S1948"0Make "listenerThread" transient or serializable.(Ä÷8ö»î×’3J$481dcf87-c53f-4b34-84cf-63b62fdb5ff7
+java:S1948"0Make "listenerThread" transient or serializable.(Ä÷8Œ›µØ’3J$9118b0f0-904a-44ce-aa0e-1519e565439a
+m	java:S106j"+Replace this use of System.out by a logger.(î¼ãÛ8 ›µØ’3J$b7291aed-bb28-414c-9c50-584f5b94abff
 Ÿ
-java:S3923¥"[Remove this conditional structure or edit its code blocks so that they're not all the same.(ù×ÅÉ8È¼î×’3J$6eeeae63-7da3-407f-8571-177ddf94c7e0
+java:S3923¥"[Remove this conditional structure or edit its code blocks so that they're not all the same.(ù×ÅÉ8®›µØ’3J$764f7620-4714-4330-83f5-9ed5ad08de76
 §
-java:S2142ˆ"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(¨œÎŒøÿÿÿÿ8Ù¼î×’3J$8b6ea798-ea7a-4cb3-a41e-512aa8f4b96d
-q	java:S108ˆ")Either remove or fill this block of code.(¨œÎŒøÿÿÿÿ8à¼î×’3J$8163aafb-c754-49aa-90af-7fdf7530b316
-q	java:S108Ù")Either remove or fill this block of code.(À•ûÿÿÿÿ8ï¼î×’3J$cf7a9414-2488-4b5b-ae51-503869d1087a
-l	java:S108æ")Either remove or fill this block of code.(Îß¿Ô8ñ¼î×’3J$7e940956-f245-4e5e-9f53-f27f2f937a43
-l	java:S108ç")Either remove or fill this block of code.(éÎÖĞ8ò¼î×’3J$7f085f64-2a43-466e-a762-cd850650fa40
-q	java:S108è")Either remove or fill this block of code.(ñÕ¶¾ıÿÿÿÿ8ò¼î×’3J$abe1b3d0-c334-4711-926d-5bd972a36d03
+java:S2142ˆ"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(¨œÎŒøÿÿÿÿ8¸›µØ’3J$d5691eb9-0790-4264-81c2-b8ad9310bcc8
+q	java:S108ˆ")Either remove or fill this block of code.(¨œÎŒøÿÿÿÿ8¹›µØ’3J$a3438901-15b2-43e2-aaec-ebbc6a153622
+q	java:S108Ù")Either remove or fill this block of code.(À•ûÿÿÿÿ8Â›µØ’3J$d3739b06-eded-42ed-9492-82ecd42193ce
+l	java:S108æ")Either remove or fill this block of code.(Îß¿Ô8Ä›µØ’3J$0ffce92d-365d-4636-a6b5-04d1e2bbb32b
+l	java:S108ç")Either remove or fill this block of code.(éÎÖĞ8Ä›µØ’3J$50617621-aac3-40ec-9977-45720bad0399
+q	java:S108è")Either remove or fill this block of code.(ñÕ¶¾ıÿÿÿÿ8Ä›µØ’3J$0f79b16b-927e-495c-a448-1d910263ed40
