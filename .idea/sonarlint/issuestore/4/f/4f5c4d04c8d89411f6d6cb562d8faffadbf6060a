@@ -1,16 +1,26 @@
 
-c
-java:S11929"FDefine a constant instead of duplicating this literal "Todos" 4 times.(İÊ¹«8…¼õÃŒ3
-j
-java:S1659"HDeclare "campoPuerto" and all following declarations on a separate line.(²Ó”…üÿÿÿÿ8¤¾õÃŒ3
+‰
+java:S1192@"FDefine a constant instead of duplicating this literal "Todos" 4 times.(İÊ¹«8Ÿ·î×’3J$d810ae9c-e005-439f-86a4-571d5de7264e
+
+java:S2095—"DUse try-with-resources or close this "Socket" in a "finally" clause.(Šé¤×øÿÿÿÿ8Ã»î×’3J$ca738d31-28c7-400d-ba2d-450d58e25f18
+
+java:S1659"HDeclare "campoPuerto" and all following declarations on a separate line.(²Ó”…üÿÿÿÿ8Ø»î×’3J$a45bcccd-db9f-45f4-ab6a-0d2dbd1ea6bc
+
+java:S1659"KDeclare "btnDesconectar" and all following declarations on a separate line.(ùÙöÑ8á»î×’3J$0c112963-bc3d-44c9-8917-36133e3dbc21
+p
+java:S1948"(Make "socket" transient or serializable.(Å’¬Úşÿÿÿÿ8ê»î×’3J$715eb076-6c4f-46c7-8011-7c9b1215999a
 h
-java:S1659"KDeclare "btnDesconectar" and all following declarations on a separate line.(ùÙöÑ8¥¾õÃŒ3
-J
-java:S1948"(Make "socket" transient or serializable.(Å’¬Úşÿÿÿÿ8§¾õÃŒ3
-B
-java:S1948"%Make "dos" transient or serializable.(“«Ëÿ8§¾õÃŒ3
-G
-java:S1948"%Make "dis" transient or serializable.(ÌİÎßüÿÿÿÿ8§¾õÃŒ3
-h
-java:S2674Õ"JCheck the return value of the "read" call to see how many bytes were read.(ò·ƒ®8Æ¾õÃŒ3
-K	java:S108é")Either remove or fill this block of code.(õ÷£ğúÿÿÿÿ8É¾õÃŒ3
+java:S1948"%Make "dos" transient or serializable.(“«Ëÿ8ë»î×’3J$1ab26b96-9b86-4248-97d8-042f6c06364d
+m
+java:S1948"%Make "dis" transient or serializable.(ÌİÎßüÿÿÿÿ8õ»î×’3J$b9761731-2e9d-4b16-af1c-50a99c89585f
+r
+java:S1948"0Make "listenerThread" transient or serializable.(Ä÷8ö»î×’3J$481dcf87-c53f-4b34-84cf-63b62fdb5ff7
+Ÿ
+java:S3923¥"[Remove this conditional structure or edit its code blocks so that they're not all the same.(ù×ÅÉ8È¼î×’3J$6eeeae63-7da3-407f-8571-177ddf94c7e0
+§
+java:S2142ˆ"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(¨œÎŒøÿÿÿÿ8Ù¼î×’3J$8b6ea798-ea7a-4cb3-a41e-512aa8f4b96d
+q	java:S108ˆ")Either remove or fill this block of code.(¨œÎŒøÿÿÿÿ8à¼î×’3J$8163aafb-c754-49aa-90af-7fdf7530b316
+q	java:S108Ù")Either remove or fill this block of code.(À•ûÿÿÿÿ8ï¼î×’3J$cf7a9414-2488-4b5b-ae51-503869d1087a
+l	java:S108æ")Either remove or fill this block of code.(Îß¿Ô8ñ¼î×’3J$7e940956-f245-4e5e-9f53-f27f2f937a43
+l	java:S108ç")Either remove or fill this block of code.(éÎÖĞ8ò¼î×’3J$7f085f64-2a43-466e-a762-cd850650fa40
+q	java:S108è")Either remove or fill this block of code.(ñÕ¶¾ıÿÿÿÿ8ò¼î×’3J$abe1b3d0-c334-4711-926d-5bd972a36d03

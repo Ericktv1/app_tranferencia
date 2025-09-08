@@ -4,13 +4,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.*;
 import java.net.*;
+import java.util.Properties;
+import java.util.concurrent.atomic.AtomicBoolean;
 
-
-/**
- * Cliente TCP con GUI que se conecta al servidor.
- * Permite enviar mensajes y archivos a otros clientes o a todos.
- */
 public class PrincipalCli extends JFrame {
+    private static final int BUF = 64 * 1024;
+
     private JTextArea areaMensajes;
     private JTextField campoHost, campoPuerto, campoMensaje;
     private JButton btnConectar, btnDesconectar, btnEnviarMsg, btnEnviarArchivo;
@@ -19,7 +18,15 @@ public class PrincipalCli extends JFrame {
     private Socket socket;
     private DataOutputStream dos;
     private DataInputStream dis;
+    private Thread listenerThread;
+
     private String nombre;
+
+    // Tolerancia a fallos
+    private int maxAttempts = 5;
+    private int delaySeconds = 3;
+    private final AtomicBoolean manualDisconnect = new AtomicBoolean(false);
+    private final AtomicBoolean reconnecting = new AtomicBoolean(false);
 
     public PrincipalCli() {
         setTitle("Cliente TCP - Chat y Archivos");
@@ -32,7 +39,7 @@ public class PrincipalCli extends JFrame {
         areaMensajes.setEditable(false);
         add(new JScrollPane(areaMensajes), BorderLayout.CENTER);
 
-        // Panel superior: host, puerto y botones conectar/desconectar
+        // Panel superior
         JPanel topPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         topPanel.add(new JLabel("Host:"));
         campoHost = new JTextField("localhost", 10);
@@ -48,7 +55,7 @@ public class PrincipalCli extends JFrame {
         topPanel.add(btnDesconectar);
         add(topPanel, BorderLayout.NORTH);
 
-        // Panel inferior: mensaje, destinatario y botones enviar
+        // Panel inferior
         JPanel bottomPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         campoMensaje = new JTextField(20);
         bottomPanel.add(campoMensaje);
@@ -65,54 +72,119 @@ public class PrincipalCli extends JFrame {
         bottomPanel.add(btnEnviarArchivo);
         add(bottomPanel, BorderLayout.SOUTH);
 
-        // Acciones de botones
-        btnConectar.addActionListener(e -> conectar());
-        btnDesconectar.addActionListener(e -> desconectar());
+        // Acciones
+        btnConectar.addActionListener(e -> conectarConReintentos());
+        btnDesconectar.addActionListener(e -> desconectarManual());
         btnEnviarMsg.addActionListener(e -> enviarMensaje());
         btnEnviarArchivo.addActionListener(e -> enviarArchivo());
+        campoMensaje.addActionListener(e -> enviarMensaje()); // Enter para enviar
+
+        // Cargar configuración
+        cargarPropiedades();
     }
 
-    /**
-     * Conecta al servidor y solicita nombre de usuario.
-     */
-    private void conectar() {
+    /* -------------------- Config -------------------- */
+    private void cargarPropiedades() {
+        File propFile = new File("cliente.properties");
+        if (!propFile.exists()) {
+            appendMensaje("No se encontró cliente.properties; se usan valores por defecto.\n");
+            return;
+        }
+        try (FileInputStream fis = new FileInputStream(propFile)) {
+            Properties p = new Properties();
+            p.load(fis);
+            String host = p.getProperty("server.host");
+            String port = p.getProperty("server.port");
+            String maxA = p.getProperty("reconnect.maxAttempts");
+            String delay = p.getProperty("reconnect.delaySeconds");
+
+            if (host != null && !host.isBlank()) campoHost.setText(host.trim());
+            if (port != null && !port.isBlank()) campoPuerto.setText(port.trim());
+            if (maxA != null) maxAttempts = Integer.parseInt(maxA.trim());
+            if (delay != null) delaySeconds = Integer.parseInt(delay.trim());
+
+            appendMensaje("Propiedades cargadas. maxAttempts=" + maxAttempts +
+                    ", delaySeconds=" + delaySeconds + "\n");
+        } catch (Exception e) {
+            appendMensaje("Error cargando propiedades: " + e.getMessage() + "\n");
+        }
+    }
+
+    /* -------------------- Conexión y reintentos -------------------- */
+    private void conectarConReintentos() {
+        manualDisconnect.set(false);
+        setUiConectando(true);
+
+        new Thread(() -> {
+            int intento = 0;
+            while (!manualDisconnect.get()) {
+                intento++;
+                boolean ok = intentarConectarUnaVez();
+                if (ok) {
+                    appendMensaje("Conectado al servidor.\n");
+                    setUiConectado(true);
+                    escucharEnHilo();
+                    return;
+                }
+                if (intento >= maxAttempts) {
+                    appendMensaje("No fue posible conectar tras " + intento + " intento(s).\n");
+                    setUiConectado(false);
+                    return;
+                }
+                dormir(delaySeconds);
+                appendMensaje("Reintentando conectar... (" + (intento + 1) + "/" + maxAttempts + ")\n");
+            }
+        }, "reconnect-initial").start();
+    }
+
+    private boolean intentarConectarUnaVez() {
         String host = campoHost.getText().trim();
         int puerto;
         try {
             puerto = Integer.parseInt(campoPuerto.getText().trim());
         } catch (NumberFormatException e) {
             appendMensaje("Puerto inválido.\n");
-            return;
+            return false;
         }
 
         try {
-            socket = new Socket(host, puerto);
-            dos = new DataOutputStream(socket.getOutputStream());
-            dis = new DataInputStream(socket.getInputStream());
+            Socket s = new Socket();
+            s.connect(new InetSocketAddress(host, puerto), 3000); // timeout 3s
+            s.setTcpNoDelay(true);
+            socket = s;
+            dos = new DataOutputStream(new BufferedOutputStream(socket.getOutputStream()));
+            dis = new DataInputStream(new BufferedInputStream(socket.getInputStream()));
 
-            // Pedir nombre
-            nombre = JOptionPane.showInputDialog(this, "Ingresa tu nombre:");
-            if (nombre == null || nombre.trim().isEmpty()) nombre = "Cliente" + socket.getPort();
-            dos.writeUTF(nombre);
-            dos.flush();
-
-            appendMensaje("Conectado al servidor.\n");
-
-            btnConectar.setEnabled(false);
-            btnDesconectar.setEnabled(true);
-            btnEnviarMsg.setEnabled(true);
-            btnEnviarArchivo.setEnabled(true);
-
-            // Escuchar mensajes del servidor en hilo separado
-            new Thread(this::escucharServidor).start();
-
+            // Nombre (si ya teníamos uno, reutilízalo)
+            if (nombre == null || nombre.isBlank()) {
+                nombre = JOptionPane.showInputDialog(this, "Ingresa tu nombre:");
+                if (nombre == null || nombre.trim().isEmpty()) nombre = "Cliente" + socket.getLocalPort();
+            }
+            // El servidor primero envía "INGRESE_NOMBRE" (según tu server)
+            String prompt = dis.readUTF();
+            if ("INGRESE_NOMBRE".equals(prompt)) {
+                dos.writeUTF(nombre);
+                dos.flush();
+            } else {
+                // Si el servidor no envió prompt, igual mandamos el nombre por compatibilidad
+                dos.writeUTF(nombre);
+                dos.flush();
+            }
+            return true;
         } catch (IOException e) {
             appendMensaje("Error conectando: " + e.getMessage() + "\n");
+            cerrarSilencioso(); // limpia recursos parciales
+            return false;
         }
     }
 
+    private void escucharEnHilo() {
+        listenerThread = new Thread(this::escucharServidor, "listener");
+        listenerThread.start();
+    }
+
     /**
-     * Escucha mensajes y archivos del servidor.
+     * Si la conexión se cae inesperadamente, aquí se detecta y se lanza un ciclo de reintentos.
      */
     private void escucharServidor() {
         try {
@@ -122,54 +194,96 @@ public class PrincipalCli extends JFrame {
                 if (msg.startsWith("MSG:")) {
                     String[] partes = msg.split(":", 3);
                     appendMensaje(partes[1] + " -> " + partes[2] + "\n");
+
                 } else if (msg.startsWith("FILE:")) {
                     String[] partes = msg.split(":", 4);
                     String remitente = partes[1];
                     String nombreArchivo = partes[2];
-                    int tam = Integer.parseInt(partes[3]);
-
-                    byte[] datos = new byte[tam];
-                    dis.readFully(datos);
+                    long tam = Long.parseLong(partes[3]);
 
                     File folder = new File("downloads");
                     if (!folder.exists()) folder.mkdirs();
                     File outFile = new File(folder, "recv_" + nombreArchivo);
-                    try (FileOutputStream fos = new FileOutputStream(outFile)) {
-                        fos.write(datos);
+
+                    try (BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(outFile))) {
+                        copiarExacto(dis, bos, tam);
                     }
                     appendMensaje(remitente + " envió archivo: " + outFile.getAbsolutePath() + "\n");
 
                 } else if (msg.startsWith("LISTA:")) {
                     actualizarListaClientes(msg.substring(6));
+
                 } else if (msg.equals("INGRESE_NOMBRE")) {
                     dos.writeUTF(nombre);
                     dos.flush();
                 }
             }
         } catch (IOException e) {
-            appendMensaje("Desconectado del servidor.\n");
+            appendMensaje("Conexión perdida con el servidor.\n");
         } finally {
-            desconectar();
+            // Intentar reconectar si NO fue desconexión manual
+            if (!manualDisconnect.get()) {
+                intentarReconexion();
+            } else {
+                desconectar(); // limpia UI
+            }
         }
     }
 
-    /**
-     * Actualiza la lista de clientes disponibles.
-     */
-    private void actualizarListaClientes(String lista) {
-        SwingUtilities.invokeLater(() -> {
-            listaClientes.removeAllItems();
-            listaClientes.addItem("Todos");
-            String[] nombres = lista.split(",");
-            for (String n : nombres) {
-                if (n != null && !n.trim().isEmpty() && !n.equals(nombre)) listaClientes.addItem(n);
+    private void intentarReconexion() {
+        if (reconnecting.getAndSet(true)) return; // evita bucles simultáneos
+
+        setUiConectando(true);
+        new Thread(() -> {
+            int intento = 0;
+            while (!manualDisconnect.get()) {
+                intento++;
+                appendMensaje("Reintentando conexión (" + intento + "/" + maxAttempts + ")...\n");
+                boolean ok = intentarConectarUnaVez();
+                if (ok) {
+                    appendMensaje("Reconectado.\n");
+                    setUiConectado(true);
+                    reconnecting.set(false);
+                    escucharEnHilo();
+                    return;
+                }
+                if (intento >= maxAttempts) {
+                    appendMensaje("No se pudo reconectar tras " + intento + " intentos.\n");
+                    reconnecting.set(false);
+                    setUiConectado(false);
+                    cerrarSilencioso();
+                    return;
+                }
+                dormir(delaySeconds);
             }
+            reconnecting.set(false);
+        }, "reconnect-loop").start();
+    }
+
+    private void dormir(int seconds) {
+        try { Thread.sleep(seconds * 1000L); } catch (InterruptedException ignored) {}
+    }
+
+    /* -------------------- UI helpers -------------------- */
+    private void setUiConectando(boolean conectando) {
+        SwingUtilities.invokeLater(() -> {
+            btnConectar.setEnabled(!conectando);
+            btnDesconectar.setEnabled(conectando);
+            btnEnviarMsg.setEnabled(false);
+            btnEnviarArchivo.setEnabled(false);
         });
     }
 
-    /**
-     * Envía mensaje al cliente seleccionado.
-     */
+    private void setUiConectado(boolean conectado) {
+        SwingUtilities.invokeLater(() -> {
+            btnConectar.setEnabled(!conectado);
+            btnDesconectar.setEnabled(true);
+            btnEnviarMsg.setEnabled(conectado);
+            btnEnviarArchivo.setEnabled(conectado);
+        });
+    }
+
+    /* -------------------- Acciones -------------------- */
     private void enviarMensaje() {
         if (socket == null || socket.isClosed()) return;
 
@@ -189,9 +303,6 @@ public class PrincipalCli extends JFrame {
         }
     }
 
-    /**
-     * Envía archivo al cliente seleccionado.
-     */
     private void enviarArchivo() {
         if (socket == null || socket.isClosed()) return;
 
@@ -207,45 +318,76 @@ public class PrincipalCli extends JFrame {
         String destino = (String) listaClientes.getSelectedItem();
         if (destino == null) destino = "Todos";
 
-        try {
-            byte[] datos = new byte[(int) f.length()];
-            try (FileInputStream fis = new FileInputStream(f)) {
-                fis.read(datos);
-            }
-
-            dos.writeUTF("FILE:" + destino + ":" + f.getName() + ":" + datos.length);
-            dos.write(datos);
+        try (BufferedInputStream bis = new BufferedInputStream(new FileInputStream(f))) {
+            long len = f.length();
+            dos.writeUTF("FILE:" + destino + ":" + f.getName() + ":" + len);
             dos.flush();
-            appendMensaje("Archivo enviado a " + destino + ": " + f.getName() + "\n");
+
+            byte[] buffer = new byte[BUF];
+            int n;
+            while ((n = bis.read(buffer)) != -1) {
+                dos.write(buffer, 0, n);
+            }
+            dos.flush();
+            appendMensaje("Archivo enviado a " + destino + ": " + f.getName() + " (" + len + " bytes)\n");
         } catch (IOException e) {
             appendMensaje("Error enviando archivo: " + e.getMessage() + "\n");
         }
     }
 
-    /**
-     * Desconecta del servidor.
-     */
+    private void desconectarManual() {
+        manualDisconnect.set(true);
+        appendMensaje("Desconectando por solicitud del usuario...\n");
+        desconectar();
+    }
+
     private void desconectar() {
-        try {
-            if (dis != null) dis.close();
-            if (dos != null) dos.close();
-            if (socket != null && !socket.isClosed()) socket.close();
-        } catch (IOException ignored) {}
-        socket = null;
+        try { if (listenerThread != null) listenerThread.interrupt(); } catch (Exception ignored) {}
+        cerrarSilencioso();
 
-        btnConectar.setEnabled(true);
-        btnDesconectar.setEnabled(false);
-        btnEnviarMsg.setEnabled(false);
-        btnEnviarArchivo.setEnabled(false);
-
+        SwingUtilities.invokeLater(() -> {
+            btnConectar.setEnabled(true);
+            btnDesconectar.setEnabled(false);
+            btnEnviarMsg.setEnabled(false);
+            btnEnviarArchivo.setEnabled(false);
+        });
         appendMensaje("Desconectado.\n");
     }
 
-    /**
-     * Agrega mensaje al área de texto.
-     */
+    private void cerrarSilencioso() {
+        try { if (dis != null) dis.close(); } catch (IOException ignored) {}
+        try { if (dos != null) dos.close(); } catch (IOException ignored) {}
+        try { if (socket != null && !socket.isClosed()) socket.close(); } catch (IOException ignored) {}
+        socket = null; dis = null; dos = null;
+    }
+
+    /* -------------------- Utilidades -------------------- */
+    private void actualizarListaClientes(String lista) {
+        SwingUtilities.invokeLater(() -> {
+            listaClientes.removeAllItems();
+            listaClientes.addItem("Todos");
+            String[] nombres = lista.split(",");
+            for (String n : nombres) {
+                if (n != null && !n.trim().isEmpty() && !n.equals(nombre)) listaClientes.addItem(n);
+            }
+        });
+    }
+
     private void appendMensaje(String msg) {
         SwingUtilities.invokeLater(() -> areaMensajes.append(msg));
+    }
+
+    private static void copiarExacto(InputStream in, OutputStream out, long bytes) throws IOException {
+        byte[] buffer = new byte[BUF];
+        long restante = bytes;
+        while (restante > 0) {
+            int toRead = (int) Math.min(buffer.length, restante);
+            int n = in.read(buffer, 0, toRead);
+            if (n == -1) throw new EOFException("Fin inesperado durante recepción de archivo");
+            out.write(buffer, 0, n);
+            restante -= n;
+        }
+        out.flush();
     }
 
     public static void main(String[] args) {

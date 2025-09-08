@@ -565,3 +565,9 @@ w
 G.idea/sonarlint/issuestore/d/2/d2f0c43df310f909a342993e82d6dc668bbdcd66,b\d\bd22ec558851350a28c3d3ad68212bae118152ec
 w
 G.idea/sonarlint/issuestore/c/1/c190dda42a4834b556947ca0b309df08a6a4ecc6,a\a\aade5b94ed38c7575ac7a9e25a325e8413fd900e
+F
+src/cliente.properties,1\0\109a251cea8a28b94a2fca95fed36dcca405eadb
+7
+pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
+B
+cliente.properties,1\7\173d56e2256a21588096c412ca8bbe0b64a39edd
