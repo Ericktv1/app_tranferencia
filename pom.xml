@@ -14,6 +14,8 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
+
+
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -24,14 +26,54 @@
   </dependencies>
   <build>
     <plugins>
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.11.0</version>
         <configuration>
-          <source>11</source>
-          <target>11</target>
+          <release>11</release>
         </configuration>
+      </plugin>
+
+      <!-- Genera 2 JAR ejecutables (servidor y monitor) -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>3.5.0</version>
+        <executions>
+          <!-- JAR del SERVIDOR -->
+          <execution>
+            <id>shade-servidor</id>
+            <phase>package</phase>
+            <goals><goal>shade</goal></goals>
+            <configuration>
+              <finalName>${project.artifactId}-${project.version}-servidor</finalName>
+              <transformers>
+                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                  <mainClass>org.vinni.servidor.gui.PrincipalSrv</mainClass>
+                </transformer>
+              </transformers>
+            </configuration>
+          </execution>
+
+          <!-- JAR del MONITOR -->
+          <execution>
+            <id>shade-monitor</id>
+            <phase>package</phase>
+            <goals><goal>shade</goal></goals>
+            <configuration>
+              <finalName>${project.artifactId}-${project.version}-monitor</finalName>
+              <transformers>
+                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                  <mainClass>org.vinni.monitor.Monitor</mainClass>
+                </transformer>
+              </transformers>
+            </configuration>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>
+
 </project>

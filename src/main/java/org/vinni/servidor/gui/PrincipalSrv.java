@@ -71,6 +71,17 @@ public class PrincipalSrv extends JFrame {
         btnDetener.addActionListener(e -> detenerServidor());
         btnEnviarMsg.addActionListener(e -> enviarMensajeATodos());
         btnEnviarArchivo.addActionListener(e -> enviarArchivoATodos());
+
+        // ---- Patch para autostart ----
+        String portProp = System.getProperty("server.port");
+        if (portProp != null && !portProp.isBlank()) {
+            campoPuerto.setText(portProp.trim());
+        }
+
+        String auto = System.getProperty("server.autostart", "false");
+        if (auto.equalsIgnoreCase("true")) {
+            SwingUtilities.invokeLater(this::iniciarServidor);
+        }
     }
 
     /**
@@ -246,10 +257,15 @@ public class PrincipalSrv extends JFrame {
                 }
 
             } catch (IOException e) {
-                appendMensaje(nombre + " desconectado.\n");
+                // Antes: appendMensaje((nombre != null ? nombre : socket.getRemoteSocketAddress()) + " desconectado.\n");
+                if (nombre != null) {                           // 👈 silencia sondas (sin nombre)
+                    appendMensaje(nombre + " desconectado.\n");
+                }
             } finally {
                 cerrarConexion();
             }
+
+
         }
 
         /**
@@ -296,14 +312,15 @@ public class PrincipalSrv extends JFrame {
          * Cierra conexión con el cliente.
          */
         void cerrarConexion() {
-            clientes.remove(nombre);
-            actualizarListaClientes();
-            try {
-                if (dis != null) dis.close();
-                if (dos != null) dos.close();
-                if (socket != null && !socket.isClosed()) socket.close();
-            } catch (IOException ignored) {}
+            if (nombre != null) {                //  proteger clave null
+                clientes.remove(nombre);
+                actualizarListaClientes();
+            }
+            try { if (dis != null) dis.close(); } catch (IOException ignored) {}
+            try { if (dos != null) dos.close(); } catch (IOException ignored) {}
+            try { if (socket != null && !socket.isClosed()) socket.close(); } catch (IOException ignored) {}
         }
+
     }
 
     /**
