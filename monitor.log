@@ -1,0 +1,118 @@
+2025-09-16 16:56:18 | === MONITOR MULTI-INSTANCIA INICIADO ===
+2025-09-16 16:56:18 | host=localhost basePort=5000 checkInterval=5s restartDelay=7s connectTimeout=1500ms maxRestartsPerHour=6
+2025-09-16 16:56:18 | commandTemplate=java -Dserver.autostart=true -Dserver.port={PORT} -jar "target/AppTcp-1.0-SNAPSHOT-servidor.jar"
+2025-09-16 16:56:22 | Instancias solicitadas: 1
+2025-09-16 16:56:22 | Watcher iniciado para puerto 5000
+2025-09-16 16:56:22 | WARN [5000] Servidor caído o no responde.
+2025-09-16 16:56:22 | Esperando 7s antes de reiniciar [5000] ...
+2025-09-16 16:56:29 | Intentando reiniciar [5000]:
+2025-09-16 16:56:29 | >>> java -Dserver.autostart=true -Dserver.port=5000 -jar "target/AppTcp-1.0-SNAPSHOT-servidor.jar"
+2025-09-16 16:56:34 | SUCCESS [5000] Servidor reiniciado correctamente.
+2025-09-16 16:56:39 | OK [5000] Servidor vivo.
+2025-09-16 16:56:44 | OK [5000] Servidor vivo.
+2025-09-16 16:56:49 | OK [5000] Servidor vivo.
+2025-09-16 16:56:54 | WARN [5000] Servidor caído o no responde.
+2025-09-16 16:56:54 | Esperando 7s antes de reiniciar [5000] ...
+2025-09-16 16:57:01 | Intentando reiniciar [5000]:
+2025-09-16 16:57:01 | >>> java -Dserver.autostart=true -Dserver.port=5000 -jar "target/AppTcp-1.0-SNAPSHOT-servidor.jar"
+2025-09-16 16:57:06 | SUCCESS [5000] Servidor reiniciado correctamente.
+2025-09-16 16:57:11 | OK [5000] Servidor vivo.
+2025-09-16 16:57:16 | OK [5000] Servidor vivo.
+2025-09-16 16:57:21 | OK [5000] Servidor vivo.
+2025-09-16 16:57:26 | OK [5000] Servidor vivo.
+2025-09-16 16:57:31 | OK [5000] Servidor vivo.
+2025-09-16 16:57:36 | OK [5000] Servidor vivo.
+2025-09-16 16:57:41 | OK [5000] Servidor vivo.
+2025-09-16 16:57:46 | OK [5000] Servidor vivo.
+2025-09-16 16:57:51 | OK [5000] Servidor vivo.
+2025-09-16 16:57:56 | OK [5000] Servidor vivo.
+2025-09-16 16:58:01 | OK [5000] Servidor vivo.
+2025-09-16 16:58:06 | OK [5000] Servidor vivo.
+2025-09-16 16:58:11 | OK [5000] Servidor vivo.
+2025-09-16 16:58:16 | OK [5000] Servidor vivo.
+2025-09-16 16:58:21 | OK [5000] Servidor vivo.
+2025-09-16 16:58:26 | OK [5000] Servidor vivo.
+2025-09-16 16:58:31 | WARN [5000] Servidor caído o no responde.
+2025-09-16 16:58:31 | Esperando 7s antes de reiniciar [5000] ...
+2025-09-16 16:58:38 | Intentando reiniciar [5000]:
+2025-09-16 16:58:38 | >>> java -Dserver.autostart=true -Dserver.port=5000 -jar "target/AppTcp-1.0-SNAPSHOT-servidor.jar"
+2025-09-16 16:58:38 | [srv:5000] Error: Unable to access jarfile target/AppTcp-1.0-SNAPSHOT-servidor.jar
+2025-09-16 16:58:43 | ERROR [5000] Tras reiniciar, el servidor sigue caído.
+2025-09-16 16:58:48 | WARN [5000] Servidor caído o no responde.
+2025-09-16 16:58:48 | Esperando 7s antes de reiniciar [5000] ...
+2025-09-16 16:58:55 | Intentando reiniciar [5000]:
+2025-09-16 16:58:55 | >>> java -Dserver.autostart=true -Dserver.port=5000 -jar "target/AppTcp-1.0-SNAPSHOT-servidor.jar"
+2025-09-16 16:58:55 | [srv:5000] Error: Unable to access jarfile target/AppTcp-1.0-SNAPSHOT-servidor.jar
+2025-09-16 16:59:00 | Monitor detenido (shutdown hook).
+2025-09-16 17:03:21 | === MONITOR MULTI-INSTANCIA INICIADO ===
+2025-09-16 17:03:21 | host=localhost basePort=5000 checkInterval=5s restartDelay=7s connectTimeout=1500ms maxRestartsPerHour=6
+2025-09-16 17:03:21 | commandTemplate=java -Dserver.autostart=true -Dserver.port={PORT} -jar "target/AppTcp-1.0-SNAPSHOT-servidor.jar"
+2025-09-16 17:03:23 | Cancelado por el usuario. No se lanzan servidores.
+2025-09-16 17:03:29 | === MONITOR MULTI-INSTANCIA INICIADO ===
+2025-09-16 17:03:29 | host=localhost basePort=5000 checkInterval=5s restartDelay=7s connectTimeout=1500ms maxRestartsPerHour=6
+2025-09-16 17:03:29 | commandTemplate=java -Dserver.autostart=true -Dserver.port={PORT} -jar "target/AppTcp-1.0-SNAPSHOT-servidor.jar"
+2025-09-16 17:03:32 | Instancias solicitadas: 3
+2025-09-16 17:03:32 | Watcher iniciado para puerto 5002
+2025-09-16 17:03:32 | Watcher iniciado para puerto 5001
+2025-09-16 17:03:32 | Watcher iniciado para puerto 5000
+2025-09-16 17:03:32 | WARN [5001] Servidor caído o no responde.
+2025-09-16 17:03:32 | WARN [5002] Servidor caído o no responde.
+2025-09-16 17:03:32 | WARN [5000] Servidor caído o no responde.
+2025-09-16 17:03:32 | Esperando 7s antes de reiniciar [5001] ...
+2025-09-16 17:03:32 | Esperando 7s antes de reiniciar [5000] ...
+2025-09-16 17:03:32 | Esperando 7s antes de reiniciar [5002] ...
+2025-09-16 17:03:39 | Intentando reiniciar [5002]:
+2025-09-16 17:03:39 | Intentando reiniciar [5000]:
+2025-09-16 17:03:39 | Intentando reiniciar [5001]:
+2025-09-16 17:03:39 | >>> java -Dserver.autostart=true -Dserver.port=5002 -jar "target/AppTcp-1.0-SNAPSHOT-servidor.jar"
+2025-09-16 17:03:39 | >>> java -Dserver.autostart=true -Dserver.port=5000 -jar "target/AppTcp-1.0-SNAPSHOT-servidor.jar"
+2025-09-16 17:03:39 | >>> java -Dserver.autostart=true -Dserver.port=5001 -jar "target/AppTcp-1.0-SNAPSHOT-servidor.jar"
+2025-09-16 17:03:44 | SUCCESS [5001] Servidor reiniciado correctamente.
+2025-09-16 17:03:44 | SUCCESS [5000] Servidor reiniciado correctamente.
+2025-09-16 17:03:44 | SUCCESS [5002] Servidor reiniciado correctamente.
+2025-09-16 17:03:49 | OK [5000] Servidor vivo.
+2025-09-16 17:03:49 | OK [5001] Servidor vivo.
+2025-09-16 17:03:49 | OK [5002] Servidor vivo.
+2025-09-16 17:03:54 | OK [5000] Servidor vivo.
+2025-09-16 17:03:54 | OK [5002] Servidor vivo.
+2025-09-16 17:03:54 | OK [5001] Servidor vivo.
+2025-09-16 17:03:59 | WARN [5000] Servidor caído o no responde.
+2025-09-16 17:03:59 | OK [5001] Servidor vivo.
+2025-09-16 17:03:59 | OK [5002] Servidor vivo.
+2025-09-16 17:03:59 | Esperando 7s antes de reiniciar [5000] ...
+2025-09-16 17:04:04 | WARN [5001] Servidor caído o no responde.
+2025-09-16 17:04:04 | WARN [5002] Servidor caído o no responde.
+2025-09-16 17:04:04 | Esperando 7s antes de reiniciar [5001] ...
+2025-09-16 17:04:04 | Esperando 7s antes de reiniciar [5002] ...
+2025-09-16 17:04:06 | Intentando reiniciar [5000]:
+2025-09-16 17:04:06 | >>> java -Dserver.autostart=true -Dserver.port=5000 -jar "target/AppTcp-1.0-SNAPSHOT-servidor.jar"
+2025-09-16 17:04:11 | Intentando reiniciar [5001]:
+2025-09-16 17:04:11 | SUCCESS [5000] Servidor reiniciado correctamente.
+2025-09-16 17:04:11 | Intentando reiniciar [5002]:
+2025-09-16 17:04:11 | >>> java -Dserver.autostart=true -Dserver.port=5001 -jar "target/AppTcp-1.0-SNAPSHOT-servidor.jar"
+2025-09-16 17:04:11 | >>> java -Dserver.autostart=true -Dserver.port=5002 -jar "target/AppTcp-1.0-SNAPSHOT-servidor.jar"
+2025-09-16 17:04:16 | SUCCESS [5001] Servidor reiniciado correctamente.
+2025-09-16 17:04:16 | SUCCESS [5002] Servidor reiniciado correctamente.
+2025-09-16 17:04:16 | OK [5000] Servidor vivo.
+2025-09-16 17:04:21 | OK [5001] Servidor vivo.
+2025-09-16 17:04:21 | OK [5000] Servidor vivo.
+2025-09-16 17:04:21 | OK [5002] Servidor vivo.
+2025-09-16 17:04:26 | OK [5002] Servidor vivo.
+2025-09-16 17:04:26 | OK [5000] Servidor vivo.
+2025-09-16 17:04:26 | OK [5001] Servidor vivo.
+2025-09-16 17:04:31 | OK [5000] Servidor vivo.
+2025-09-16 17:04:31 | OK [5002] Servidor vivo.
+2025-09-16 17:04:31 | OK [5001] Servidor vivo.
+2025-09-16 17:04:36 | OK [5000] Servidor vivo.
+2025-09-16 17:04:36 | OK [5001] Servidor vivo.
+2025-09-16 17:04:36 | OK [5002] Servidor vivo.
+2025-09-16 17:04:41 | OK [5001] Servidor vivo.
+2025-09-16 17:04:41 | OK [5000] Servidor vivo.
+2025-09-16 17:04:41 | OK [5002] Servidor vivo.
+2025-09-16 17:04:46 | WARN [5000] Servidor caído o no responde.
+2025-09-16 17:04:46 | OK [5002] Servidor vivo.
+2025-09-16 17:04:46 | OK [5001] Servidor vivo.
+2025-09-16 17:04:46 | Esperando 7s antes de reiniciar [5000] ...
+2025-09-16 17:04:51 | OK [5002] Servidor vivo.
+2025-09-16 17:04:51 | OK [5001] Servidor vivo.
+2025-09-16 17:04:52 | Monitor detenido (shutdown hook).
