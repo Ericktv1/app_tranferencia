@@ -1,16 +1,31 @@
 
-‰
-java:S11929"FDefine a constant instead of duplicating this literal "Todos" 4 times.(İÊ¹«8ŠÊ¨ËŠ3J$3761dbbb-761e-44c2-96ce-b35b9302dc35
-
-java:S1659"HDeclare "campoPuerto" and all following declarations on a separate line.(²Ó”…üÿÿÿÿ8‚Ì¨ËŠ3J$488bc20a-d85f-4c58-a253-2ba1efdc97fd
-
-java:S1659"KDeclare "btnDesconectar" and all following declarations on a separate line.(ùÙöÑ8‚Ì¨ËŠ3J$daeb94c1-89a1-4b36-a6ea-6b9a961e240e
-p
-java:S1948"(Make "socket" transient or serializable.(Å’¬Úşÿÿÿÿ8ƒÌ¨ËŠ3J$dc211596-38c9-4c89-b352-5946c724e933
+c
+java:S1192J"FDefine a constant instead of duplicating this literal "Todos" 4 times.(İÊ¹«8²Šö¢•3
+b
+java:S2095Ş"DUse try-with-resources or close this "Socket" in a "finally" clause.(­ä–£8÷“ö¢•3
+j
+java:S1659"HDeclare "campoPuerto" and all following declarations on a separate line.(²Ó”…üÿÿÿÿ8„”ö¢•3
 h
-java:S1948"%Make "dos" transient or serializable.(“«Ëÿ8ƒÌ¨ËŠ3J$8827d4bc-1f91-4dc5-84e6-0aab57d0cde4
-m
-java:S1948"%Make "dis" transient or serializable.(ÌİÎßüÿÿÿÿ8ƒÌ¨ËŠ3J$2fb4506e-c697-4d88-b960-9c370a60670f
-
-java:S2674Õ"JCheck the return value of the "read" call to see how many bytes were read.(ò·ƒ®8 Ì¨ËŠ3J$63a00564-e504-4ae6-9dbd-20f7e3eeb0aa
-q	java:S108é")Either remove or fill this block of code.(õ÷£ğúÿÿÿÿ8¢Ì¨ËŠ3J$f3102520-1db1-4954-921b-8cecfc1ee428
+java:S1659"KDeclare "btnDesconectar" and all following declarations on a separate line.(ùÙöÑ8…”ö¢•3
+J
+java:S1948"(Make "socket" transient or serializable.(Å’¬Úşÿÿÿÿ8ˆ”ö¢•3
+B
+java:S1948"%Make "dos" transient or serializable.(“«Ëÿ8‰”ö¢•3
+G
+java:S1948"%Make "dis" transient or serializable.(ÌİÎßüÿÿÿÿ8‰”ö¢•3
+L
+java:S1948"0Make "listenerThread" transient or serializable.(Ä÷8‰”ö¢•3
+M	java:S106Œ"+Replace this use of System.out by a logger.(ŞòĞ¥ıÿÿÿÿ8Ë”ö¢•3
+p
+java:S3776Õ"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(ù•¾8€–ö¢•3
+y
+java:S3923û"[Remove this conditional structure or edit its code blocks so that they're not all the same.(ù×ÅÉ8‡–ö¢•3
+§
+java:S2142ö"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(¨œÎŒøÿÿÿÿ8èŒ¦¢•3J$59a9b275-6a2a-43cd-8b62-d622e9acd376
+q	java:S108ö")Either remove or fill this block of code.(¨œÎŒøÿÿÿÿ8¢Ÿî¡•3J$4293fded-0a3e-4188-84f6-cce3a42354c9
+q	java:S108Ç")Either remove or fill this block of code.(À•ûÿÿÿÿ8¦¢•3J$fd438d5a-794e-4eee-8185-e599659775a4
+l	java:S108Ô")Either remove or fill this block of code.(Îß¿Ô8†¦¢•3J$5422daf0-58fe-4862-b406-6f90b1ccd2e0
+l	java:S108Õ")Either remove or fill this block of code.(éÎÖĞ8‡¦¢•3J$0ce29d5d-875a-41fc-85fd-9031d2c214f8
+q	java:S108Ö")Either remove or fill this block of code.(ñÕ¶¾ıÿÿÿÿ8¢Ÿî¡•3J$7107af5b-72d5-49b9-848d-2c7c131e081e
+^
+java:S1144Î";Remove this unused private "intentarConectarUnaVez" method.(íÍÎ«ıÿÿÿÿ8Ü—ö¢•3

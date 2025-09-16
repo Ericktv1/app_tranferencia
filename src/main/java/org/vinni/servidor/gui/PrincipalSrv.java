@@ -34,6 +34,55 @@ public class PrincipalSrv extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
+
+        // Área de mensajes
+        areaMensajes = new JTextArea();
+        areaMensajes.setEditable(false);
+        add(new JScrollPane(areaMensajes), BorderLayout.CENTER);
+
+        // Panel superior: puerto y botones iniciar/detener
+        JPanel topPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        topPanel.add(new JLabel("Puerto:"));
+        campoPuerto = new JTextField("5000", 8);
+        topPanel.add(campoPuerto);
+
+        btnIniciar = new JButton("Iniciar Servidor");
+        btnDetener = new JButton("Detener Servidor");
+        btnDetener.setEnabled(false);
+        topPanel.add(btnIniciar);
+        topPanel.add(btnDetener);
+        add(topPanel, BorderLayout.NORTH);
+
+        // Panel inferior: campo de mensaje y botones enviar
+        JPanel bottomPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        campoMensaje = new JTextField(20);
+        bottomPanel.add(campoMensaje);
+
+        btnEnviarMsg = new JButton("Enviar Mensaje");
+        btnEnviarMsg.setEnabled(false);
+        btnEnviarArchivo = new JButton("Enviar Archivo");
+        btnEnviarArchivo.setEnabled(false);
+        bottomPanel.add(btnEnviarMsg);
+        bottomPanel.add(btnEnviarArchivo);
+        add(bottomPanel, BorderLayout.SOUTH);
+
+        // Acciones de botones
+        btnIniciar.addActionListener(e -> iniciarServidor());
+        btnDetener.addActionListener(e -> detenerServidor());
+        btnEnviarMsg.addActionListener(e -> enviarMensajeATodos());
+        btnEnviarArchivo.addActionListener(e -> enviarArchivoATodos());
+
+        // ---- Patch para autostart ----
+        String portProp = System.getProperty("server.port");
+        if (portProp != null && !portProp.isBlank()) {
+            campoPuerto.setText(portProp.trim());
+        }
+
+        String auto = System.getProperty("server.autostart", "false");
+        if (auto.equalsIgnoreCase("true")) {
+            SwingUtilities.invokeLater(this::iniciarServidor);
+        }
+
         mensajesTxt.setEditable(false);
         add(new JScrollPane(mensajesTxt), BorderLayout.CENTER);
 
@@ -58,6 +107,7 @@ public class PrincipalSrv extends JFrame {
         btDetener.setEnabled(false);
         btEnviarMsg.setEnabled(false);
         btEnviarArchivo.setEnabled(false);
+
     }
 
     private void iniciarServidor() {
@@ -119,6 +169,40 @@ public class PrincipalSrv extends JFrame {
         }
     }
 
+
+    /**
+     * Detiene el servidor y cierra todas las conexiones de clientes.
+     */
+    private void detenerServidor() {
+        servidorCorriendo.set(false);
+        btnIniciar.setEnabled(true);
+        btnDetener.setEnabled(false);
+        btnEnviarMsg.setEnabled(false);
+        btnEnviarArchivo.setEnabled(false);
+
+        try { if (serverSocket != null) serverSocket.close(); } catch (IOException ignored) {}
+
+        // Cerrar todos los clientes
+        for (ClienteHandler ch : clientes.values()) ch.cerrarConexion();
+        clientes.clear();
+        appendMensaje("Servidor detenido.\n");
+
+        // Cerrar GUI y salir del proceso para que el Monitor lo pueda reiniciar limpio
+        SwingUtilities.invokeLater(() -> {
+            try { setVisible(false); } catch (Exception ignored) {}
+            try { dispose(); } catch (Exception ignored) {}
+            System.exit(0);   // <- clave para que NO quede la ventana vieja
+        });
+    }
+
+
+    /**
+     * Envía mensaje de broadcast a todos los clientes.
+     */
+    private void enviarMensajeATodos() {
+        String texto = campoMensaje.getText().trim();
+        if (texto.isEmpty()) return;
+
     private void handleClient(Socket s) {
         try {
             while (clienteConectado.get() && !s.isClosed()) {
@@ -152,6 +236,7 @@ public class PrincipalSrv extends JFrame {
         try {
             String fileName = dis.readUTF();
             long fileLength = dis.readLong();
+
 
             File folder = new File("downloads");
             if (!folder.exists() && !folder.mkdirs()) {
@@ -211,10 +296,23 @@ public class PrincipalSrv extends JFrame {
         JFileChooser chooser = new JFileChooser();
         if (chooser.showOpenDialog(this) != JFileChooser.APPROVE_OPTION) return;
 
+
+            } catch (IOException e) {
+                // Antes: appendMensaje((nombre != null ? nombre : socket.getRemoteSocketAddress()) + " desconectado.\n");
+                if (nombre != null) {                           // 👈 silencia sondas (sin nombre)
+                    appendMensaje(nombre + " desconectado.\n");
+                }
+            } finally {
+                cerrarConexion();
+            }
+
+
+
         File f = chooser.getSelectedFile();
         if (!f.exists() || !f.isFile()) {
             appendMessage("Archivo inválido seleccionado.\n");
             return;
+
         }
 
         synchronized (sendLock) {
@@ -251,6 +349,21 @@ public class PrincipalSrv extends JFrame {
         appendMessage("Servidor detenido.\n");
     }
 
+
+        /**
+         * Cierra conexión con el cliente.
+         */
+        void cerrarConexion() {
+            if (nombre != null) {                //  proteger clave null
+                clientes.remove(nombre);
+                actualizarListaClientes();
+            }
+            try { if (dis != null) dis.close(); } catch (IOException ignored) {}
+            try { if (dos != null) dos.close(); } catch (IOException ignored) {}
+            try { if (socket != null && !socket.isClosed()) socket.close(); } catch (IOException ignored) {}
+        }
+
+
     private void closeClientConnection() {
         clienteConectado.set(false);
         try {
@@ -268,6 +381,7 @@ public class PrincipalSrv extends JFrame {
             btEnviarArchivo.setEnabled(false);
         });
         appendMessage("Conexión con cliente cerrada.\n");
+
     }
 
     private File uniqueFile(File folder, String baseName) {
