@@ -1,25 +1,25 @@
 
 r
-java:S1659"*Declare "campoMensaje" on a separate line.(èÂãüÿÿÿÿ8¸¸õÃŒ3J$72c3292c-7b60-4835-8945-5f26d58a792a
+java:S1659"*Declare "campoMensaje" on a separate line.(èÂãüÿÿÿÿ8­¥ÿ£•3J$a5d94d04-2e17-4a82-854f-7609add42e67
 
-java:S1659"GDeclare "btnDetener" and all following declarations on a separate line.(€ãŞ§ıÿÿÿÿ8¹¸õÃŒ3J$52b611c7-ad70-4131-93ea-d0aae70a2e58
+java:S1659"GDeclare "btnDetener" and all following declarations on a separate line.(€ãŞ§ıÿÿÿÿ8®¥ÿ£•3J$c5eeb385-4f53-4d0d-86dc-45134aeebd4d
 v
-java:S1948".Make "serverSocket" transient or serializable.(“—Ó¿ıÿÿÿÿ8»¸õÃŒ3J$06ecddfc-b7c1-4890-a0d1-032cf3659733
+java:S1948".Make "serverSocket" transient or serializable.(“—Ó¿ıÿÿÿÿ8°¥ÿ£•3J$d59d80bc-af2f-4b54-b813-e9ba7fbc59f8
 m
-java:S1948"*Make "sendLock" transient or serializable.(ê˜şÒ8¼¸õÃŒ3J$0e62b59c-717e-47f8-a889-c9bcda61d822
-q	java:S108‰")Either remove or fill this block of code.(‘ø«Åıÿÿÿÿ8²—É¢•3J$249b07ec-780c-41a8-9c74-3dfcdc6a8c2b
-k	java:S108’")Either remove or fill this block of code.(Â¬Ğp8²—É¢•3J$6c9109af-21b4-4ce3-8592-4587a7e9ed03
-q	java:S108“")Either remove or fill this block of code.(¤ËÔşÿÿÿÿ8³—É¢•3J$07be8ca4-6ade-4f0f-b0c6-2081aa9426c5
+java:S1948"*Make "sendLock" transient or serializable.(ê˜şÒ8°¥ÿ£•3J$dcded129-115f-4d4e-817a-f70f89d0f98f
+q	java:S108‰")Either remove or fill this block of code.(‘ø«Åıÿÿÿÿ8Â¥ÿ£•3J$9e23df6a-807d-4f6e-9d93-39bfa23e8bd9
+k	java:S108’")Either remove or fill this block of code.(Â¬Ğp8Ã¥ÿ£•3J$08f3de49-31e4-4cfa-bc3a-e61fadd0d2be
+q	java:S108“")Either remove or fill this block of code.(¤ËÔşÿÿÿÿ8Ã¥ÿ£•3J$a308d683-2c1e-4617-9980-eaff72feefb8
 –
-java:S3776Ó"RRefactor this method to reduce its Cognitive Complexity from 44 to the 15 allowed.(“–ış8¼¹õÃŒ3J$8480bf05-d8be-4a93-83f5-86eb1c364352
-„	java:S125Š"<This block of commented-out lines of code should be removed.(²ù×¥ùÿÿÿÿ8ê¾š•3J$4dd3f3f7-e223-4266-9c34-87e9f305198b
+java:S3776Ó"RRefactor this method to reduce its Cognitive Complexity from 44 to the 15 allowed.(“–ış8Ê¥ÿ£•3J$4ea8191e-2c3b-4e78-b3b1-5762c391efb7
+„	java:S125Š"<This block of commented-out lines of code should be removed.(²ù×¥ùÿÿÿÿ8Ğ¥ÿ£•3J$9bff6e1d-5016-440d-8610-942ec1509c7d
 s
-java:S2093Ô"*Change this "try" to a try-with-resources.(¡»¢üùÿÿÿÿ8æ¹õÃŒ3J$a65c8cce-28a3-41cd-b08c-d207fd37a970
+java:S2093Ô"*Change this "try" to a try-with-resources.(¡»¢üùÿÿÿÿ8Ñ¥ÿ£•3J$b8eca2c3-6768-4b99-a342-3918ef26b246
 
-java:S2674¨"JCheck the return value of the "read" call to see how many bytes were read.(ò·ƒ®8í¹õÃŒ3J$41a2e676-8b28-4a50-a5e0-b75a638270c2
-l	java:S108Å")Either remove or fill this block of code.(Îß¿Ô8åó¢•3J$b47c26dc-a960-475b-bdb9-c38feac7b6f0
-F	java:S108Æ")Either remove or fill this block of code.(éÎÖĞ8Õ ö¢•3
-K	java:S108Ç")Either remove or fill this block of code.(ñÕ¶¾ıÿÿÿÿ8Ö ö¢•3
-K	java:S108Ö")Either remove or fill this block of code.(õ÷£ğúÿÿÿÿ8× ö¢•3
+java:S2674¨"JCheck the return value of the "read" call to see how many bytes were read.(ò·ƒ®8Ó¥ÿ£•3J$db8d13c3-8a09-4c63-b210-330b4f3126f2
+l	java:S108Å")Either remove or fill this block of code.(Îß¿Ô8Ö¥ÿ£•3J$4dfff3da-adb8-4ba0-b3c9-1f167e3dd3ad
+l	java:S108Æ")Either remove or fill this block of code.(éÎÖĞ8Ö¥ÿ£•3J$79a834b6-a5d7-4100-bfba-7488fd386ea9
+q	java:S108Ç")Either remove or fill this block of code.(ñÕ¶¾ıÿÿÿÿ8Ö¥ÿ£•3J$e8bdcfb5-c58c-4cdd-a630-d5dc2f5905eb
+q	java:S108Ö")Either remove or fill this block of code.(õ÷£ğúÿÿÿÿ8Ø¥ÿ£•3J$dc6b95c2-21dc-435f-a365-fa25937c464e
 k
-java:S3398Ï"'Move this method into "ClienteHandler".(Ñ¬±•8ú¹õÃŒ3J$1a5bc79c-26ca-41b5-8cde-e74b990187be
+java:S3398Ï"'Move this method into "ClienteHandler".(Ñ¬±•8Ù¥ÿ£•3J$efee2a0b-2897-4312-999e-346d7e591ada

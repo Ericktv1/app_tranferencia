@@ -1,0 +1,15 @@
+
+†	java:S112,"FDefine and throw a dedicated exception instead of using a generic one.(å¯°õøÿÿÿÿJ$abf53c7b-0985-4f9b-9001-7831c47f07c0
+„
+java:S1192z"HDefine a constant instead of duplicating this literal "ERROR [" 3 times.(ØúÛJ$106cd277-716d-4c74-a616-2b690b51bfdc
+”	java:S135p"YReduce the total number of break and continue statements in this loop to use at most one.(›ûÅòJ$a0ac2871-433f-4cba-8b51-678d6e699a13
+w	java:S125"<This block of commented-out lines of code should be removed.(É£¤J$a9893f17-0c6a-4fbd-8a2e-741a1409d5ab
+i	java:S108?")Either remove or fill this block of code.( ¼ûüÿÿÿÿJ$e3740fdb-9d19-4639-816f-360fce71f8cd
+d	java:S108d")Either remove or fill this block of code.(Š”Û J$be295ba8-e4cb-412b-bcee-69af9637d00b
+w	java:S125¼"<This block of commented-out lines of code should be removed.(ò»²(J$fa9e4547-159f-477a-870c-7d468338d57b
+j	java:S108ä")Either remove or fill this block of code.(õ÷£ğúÿÿÿÿJ$5ff3bf1f-5b8b-48f0-9430-190f9791fe4a
+š
+java:S2142ö"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(’’–gJ$637e4de3-f250-4c4c-857b-144df141aac3
+d	java:S108ö")Either remove or fill this block of code.(’’–gJ$6cdd5def-4544-4ab8-bccd-ca489e757349
+l	java:S106ü"+Replace this use of System.out by a logger.(ÊäàúÿÿÿÿJ$9f60c332-bf8a-4270-8693-ee2babaadc8e
+d	java:S108ÿ")Either remove or fill this block of code.(ÔÁ†^J$e923bea0-e162-45ac-9ae8-e6ac0a2a42fe

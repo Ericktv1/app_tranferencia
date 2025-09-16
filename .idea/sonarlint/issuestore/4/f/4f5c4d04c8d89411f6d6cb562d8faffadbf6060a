@@ -1,31 +1,31 @@
 
-c
-java:S1192J"FDefine a constant instead of duplicating this literal "Todos" 4 times.(İÊ¹«8²Šö¢•3
-b
-java:S2095Ş"DUse try-with-resources or close this "Socket" in a "finally" clause.(­ä–£8÷“ö¢•3
-j
-java:S1659"HDeclare "campoPuerto" and all following declarations on a separate line.(²Ó”…üÿÿÿÿ8„”ö¢•3
-h
-java:S1659"KDeclare "btnDesconectar" and all following declarations on a separate line.(ùÙöÑ8…”ö¢•3
-J
-java:S1948"(Make "socket" transient or serializable.(Å’¬Úşÿÿÿÿ8ˆ”ö¢•3
-B
-java:S1948"%Make "dos" transient or serializable.(“«Ëÿ8‰”ö¢•3
-G
-java:S1948"%Make "dis" transient or serializable.(ÌİÎßüÿÿÿÿ8‰”ö¢•3
-L
-java:S1948"0Make "listenerThread" transient or serializable.(Ä÷8‰”ö¢•3
-M	java:S106Œ"+Replace this use of System.out by a logger.(ŞòĞ¥ıÿÿÿÿ8Ë”ö¢•3
+‰
+java:S1192J"FDefine a constant instead of duplicating this literal "Todos" 4 times.(İÊ¹«8¢ƒ¤•3J$4717ae29-c241-4e98-b9fd-56c2cf6692f2
+ˆ
+java:S2095Ş"DUse try-with-resources or close this "Socket" in a "finally" clause.(­ä–£8êŠ¤•3J$f39b3437-795c-44ed-a3b0-f8a898c1afcc
+
+java:S1659"HDeclare "campoPuerto" and all following declarations on a separate line.(²Ó”…üÿÿÿÿ8ğŠ¤•3J$277f19df-c80a-4618-97ea-d6150d3013d2
+
+java:S1659"KDeclare "btnDesconectar" and all following declarations on a separate line.(ùÙöÑ8ğŠ¤•3J$236551ef-43d1-4781-9dee-d4486d42f380
 p
-java:S3776Õ"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(ù•¾8€–ö¢•3
-y
-java:S3923û"[Remove this conditional structure or edit its code blocks so that they're not all the same.(ù×ÅÉ8‡–ö¢•3
+java:S1948"(Make "socket" transient or serializable.(Å’¬Úşÿÿÿÿ8òŠ¤•3J$e6e63754-bc7d-4256-95be-6b148c90da56
+h
+java:S1948"%Make "dos" transient or serializable.(“«Ëÿ8òŠ¤•3J$eabd03d9-f2f4-4c96-8871-a5a4d2415bda
+m
+java:S1948"%Make "dis" transient or serializable.(ÌİÎßüÿÿÿÿ8òŠ¤•3J$bdeab05b-9d4a-498f-a4ee-45b320327462
+r
+java:S1948"0Make "listenerThread" transient or serializable.(Ä÷8òŠ¤•3J$12c2adc8-e292-481f-b869-9ede84b1fc2c
+s	java:S106Œ"+Replace this use of System.out by a logger.(ŞòĞ¥ıÿÿÿÿ8„‹¤•3J$ed8a080c-9d8a-4a2d-b9e0-d5b0141c218c
+–
+java:S3776Õ"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(ù•¾8‹¤•3J$ed3a18d5-3c4f-4fad-bcdb-6174f6c8fb53
+Ÿ
+java:S3923û"[Remove this conditional structure or edit its code blocks so that they're not all the same.(ù×ÅÉ8‘‹¤•3J$4b006bce-73c7-4051-9e5b-0f284f2c2996
 §
-java:S2142ö"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(¨œÎŒøÿÿÿÿ8èŒ¦¢•3J$59a9b275-6a2a-43cd-8b62-d622e9acd376
-q	java:S108ö")Either remove or fill this block of code.(¨œÎŒøÿÿÿÿ8¢Ÿî¡•3J$4293fded-0a3e-4188-84f6-cce3a42354c9
-q	java:S108Ç")Either remove or fill this block of code.(À•ûÿÿÿÿ8¦¢•3J$fd438d5a-794e-4eee-8185-e599659775a4
-l	java:S108Ô")Either remove or fill this block of code.(Îß¿Ô8†¦¢•3J$5422daf0-58fe-4862-b406-6f90b1ccd2e0
-l	java:S108Õ")Either remove or fill this block of code.(éÎÖĞ8‡¦¢•3J$0ce29d5d-875a-41fc-85fd-9031d2c214f8
-q	java:S108Ö")Either remove or fill this block of code.(ñÕ¶¾ıÿÿÿÿ8¢Ÿî¡•3J$7107af5b-72d5-49b9-848d-2c7c131e081e
-^
-java:S1144Î";Remove this unused private "intentarConectarUnaVez" method.(íÍÎ«ıÿÿÿÿ8Ü—ö¢•3
+java:S2142ö"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(¨œÎŒøÿÿÿÿ8›‹¤•3J$20190912-eb25-45df-becb-9c537aee313e
+q	java:S108ö")Either remove or fill this block of code.(¨œÎŒøÿÿÿÿ8œ‹¤•3J$14581b2d-4cce-44b1-a5b7-2509131f88ae
+q	java:S108Ç")Either remove or fill this block of code.(À•ûÿÿÿÿ8£‹¤•3J$354d72ae-7c9f-479d-8396-0906ad164bc5
+l	java:S108Ô")Either remove or fill this block of code.(Îß¿Ô8¤‹¤•3J$64af9fdb-2dff-4a75-9bf6-0d363150ae1b
+l	java:S108Õ")Either remove or fill this block of code.(éÎÖĞ8¥‹¤•3J$1096e1b4-dd2a-4bc0-ad89-756b4589f117
+q	java:S108Ö")Either remove or fill this block of code.(ñÕ¶¾ıÿÿÿÿ8¥‹¤•3J$9816b2ac-4ac6-44f7-a7f2-55d752749520
+„
+java:S1144Î";Remove this unused private "intentarConectarUnaVez" method.(íÍÎ«ıÿÿÿÿ8ª‹¤•3J$8d43d178-0b1d-4089-a9dc-9b998297e05b
