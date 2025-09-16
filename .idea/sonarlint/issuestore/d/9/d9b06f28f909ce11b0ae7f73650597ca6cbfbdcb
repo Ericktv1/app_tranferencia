@@ -1,0 +1,25 @@
+
+r
+java:S1659"*Declare "campoMensaje" on a separate line.(èÂãüÿÿÿÿ8õç‘¤•3J$2f7c6fa4-a582-47f2-a5db-3b2e8a2445bb
+
+java:S1659"GDeclare "btnDetener" and all following declarations on a separate line.(€ãŞ§ıÿÿÿÿ8õç‘¤•3J$c4b1c6af-e640-4a84-bfc5-840a6da6b629
+v
+java:S1948".Make "serverSocket" transient or serializable.(“—Ó¿ıÿÿÿÿ8öç‘¤•3J$f067dea5-37b2-4a85-bc7f-aa7f573a7185
+m
+java:S1948"*Make "sendLock" transient or serializable.(ê˜şÒ8öç‘¤•3J$e1ff6b0a-c659-4352-bd3c-a6388f1c43a8
+q	java:S108‰")Either remove or fill this block of code.(‘ø«Åıÿÿÿÿ8‡è‘¤•3J$7060b16c-2955-4b9a-a11a-b326b1bb8017
+k	java:S108’")Either remove or fill this block of code.(Â¬Ğp8ˆè‘¤•3J$317e2b17-9ed0-4050-812a-56c913020e94
+q	java:S108“")Either remove or fill this block of code.(¤ËÔşÿÿÿÿ8ˆè‘¤•3J$4acc0084-2a77-4ae9-946a-172ddae2097e
+–
+java:S3776Ó"RRefactor this method to reduce its Cognitive Complexity from 44 to the 15 allowed.(“–ış8è‘¤•3J$e8cb10f7-91e0-474c-89d5-eadf50ce4423
+„	java:S125Š"<This block of commented-out lines of code should be removed.(²ù×¥ùÿÿÿÿ8•è‘¤•3J$6a912cda-2360-4120-94ec-d3ba82ff1ec0
+s
+java:S2093Ô"*Change this "try" to a try-with-resources.(¡»¢üùÿÿÿÿ8–è‘¤•3J$9b6f5ba9-cae6-42cd-93bd-a29ebadc106e
+
+java:S2674¨"JCheck the return value of the "read" call to see how many bytes were read.(ò·ƒ®8™è‘¤•3J$27cb64db-3171-4b10-8cc5-6298d2ede031
+l	java:S108Å")Either remove or fill this block of code.(Îß¿Ô8›è‘¤•3J$ed971a79-e280-442a-9eae-33ce5fd45ff4
+l	java:S108Æ")Either remove or fill this block of code.(éÎÖĞ8œè‘¤•3J$7fe4238c-c117-4a41-862a-3ea9346ccf77
+q	java:S108Ç")Either remove or fill this block of code.(ñÕ¶¾ıÿÿÿÿ8œè‘¤•3J$ca744053-8ae3-4203-aac6-8ac5118d934d
+q	java:S108Ö")Either remove or fill this block of code.(õ÷£ğúÿÿÿÿ8è‘¤•3J$4984728b-c8f0-45fc-b0c6-de76e2a03086
+k
+java:S3398Ï"'Move this method into "ClienteHandler".(Ñ¬±•8è‘¤•3J$68f30439-a8d2-4b8d-af3b-39c2319b327c
