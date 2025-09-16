@@ -134,15 +134,21 @@ public class PrincipalSrv extends JFrame {
         btnEnviarMsg.setEnabled(false);
         btnEnviarArchivo.setEnabled(false);
 
-        try {
-            if (serverSocket != null) serverSocket.close();
-        } catch (IOException ignored) {}
+        try { if (serverSocket != null) serverSocket.close(); } catch (IOException ignored) {}
 
         // Cerrar todos los clientes
         for (ClienteHandler ch : clientes.values()) ch.cerrarConexion();
         clientes.clear();
         appendMensaje("Servidor detenido.\n");
+
+        // Cerrar GUI y salir del proceso para que el Monitor lo pueda reiniciar limpio
+        SwingUtilities.invokeLater(() -> {
+            try { setVisible(false); } catch (Exception ignored) {}
+            try { dispose(); } catch (Exception ignored) {}
+            System.exit(0);   // <- clave para que NO quede la ventana vieja
+        });
     }
+
 
     /**
      * Envía mensaje de broadcast a todos los clientes.

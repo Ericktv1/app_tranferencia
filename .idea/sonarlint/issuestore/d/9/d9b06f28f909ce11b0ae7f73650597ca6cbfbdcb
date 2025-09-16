@@ -1,20 +1,25 @@
 
-L
-java:S1659"*Declare "campoMensaje" on a separate line.(èÂãüÿÿÿÿ8¸¸õÃŒ3
-i
-java:S1659"GDeclare "btnDetener" and all following declarations on a separate line.(€ãŞ§ıÿÿÿÿ8¹¸õÃŒ3
-P
-java:S1948".Make "serverSocket" transient or serializable.(“—Ó¿ıÿÿÿÿ8»¸õÃŒ3
-G
-java:S1948"*Make "sendLock" transient or serializable.(ê˜şÒ8¼¸õÃŒ3
-K	java:S108€")Either remove or fill this block of code.(õ÷£ğúÿÿÿÿ8æ¸õÃŒ3
-p
-java:S3776Â"RRefactor this method to reduce its Cognitive Complexity from 42 to the 15 allowed.(“–ış8¼¹õÃŒ3
-M
-java:S2093Ã"*Change this "try" to a try-with-resources.(¡»¢üùÿÿÿÿ8æ¹õÃŒ3
-h
-java:S2674’"JCheck the return value of the "read" call to see how many bytes were read.(ò·ƒ®8í¹õÃŒ3
-K	java:S108±")Either remove or fill this block of code.(õ÷£ğúÿÿÿÿ8õ¹õÃŒ3
-K	java:S108¿")Either remove or fill this block of code.(õ÷£ğúÿÿÿÿ8÷¹õÃŒ3
-E
-java:S3398¸"'Move this method into "ClienteHandler".(Ñ¬±•8ú¹õÃŒ3
+r
+java:S1659"*Declare "campoMensaje" on a separate line.(èÂãüÿÿÿÿ8¸¸õÃŒ3J$4d13aee0-df5f-40b1-a861-612f70d0be59
+
+java:S1659"GDeclare "btnDetener" and all following declarations on a separate line.(€ãŞ§ıÿÿÿÿ8¹¸õÃŒ3J$c6a6094f-aa39-4be9-9b45-44f91c6ea08e
+v
+java:S1948".Make "serverSocket" transient or serializable.(“—Ó¿ıÿÿÿÿ8»¸õÃŒ3J$7bd07826-62e2-4d4f-8bde-7cdd1bd19ac7
+m
+java:S1948"*Make "sendLock" transient or serializable.(ê˜şÒ8¼¸õÃŒ3J$b7a8c150-3325-4881-b2e4-e91c68ddc467
+q	java:S108‰")Either remove or fill this block of code.(‘ø«Åıÿÿÿÿ8÷¹õÃŒ3J$62051412-3dec-45c9-a64c-dc1b2d5accf2
+k	java:S108’")Either remove or fill this block of code.(Â¬Ğp8ô¾š•3J$196ef6ce-a5b8-47f5-8e6b-f203a1985f46
+q	java:S108“")Either remove or fill this block of code.(¤ËÔşÿÿÿÿ8õ¾š•3J$278ba006-64da-4307-9404-eab66d95db33
+–
+java:S3776Ó"RRefactor this method to reduce its Cognitive Complexity from 44 to the 15 allowed.(“–ış8¼¹õÃŒ3J$8df157ae-e9f2-490a-8012-7461524c3682
+„	java:S125Š"<This block of commented-out lines of code should be removed.(²ù×¥ùÿÿÿÿ8ê¾š•3J$d81f0a08-da70-4e9b-a9b0-dd44a767a2e2
+s
+java:S2093Ô"*Change this "try" to a try-with-resources.(¡»¢üùÿÿÿÿ8æ¹õÃŒ3J$964f5e1a-3081-4a4c-9b4c-2bc3825758c4
+
+java:S2674¨"JCheck the return value of the "read" call to see how many bytes were read.(ò·ƒ®8í¹õÃŒ3J$6974e2c3-6a82-4bb3-b5e4-85047a4e7597
+l	java:S108Å")Either remove or fill this block of code.(Îß¿Ô8õ¹õÃŒ3J$535dd576-f1c5-4d72-865a-7a2edb03870f
+l	java:S108Æ")Either remove or fill this block of code.(éÎÖĞ8²—É¢•3J$c84a1e70-52dd-415c-87a9-e4bc53f585f0
+q	java:S108Ç")Either remove or fill this block of code.(ñÕ¶¾ıÿÿÿÿ8²—É¢•3J$0c0729f3-43fa-4e48-9335-5074cabd837d
+q	java:S108Ö")Either remove or fill this block of code.(õ÷£ğúÿÿÿÿ8³—É¢•3J$d4d402b9-2b44-4cd4-832b-85f732076b59
+k
+java:S3398Ï"'Move this method into "ClienteHandler".(Ñ¬±•8ú¹õÃŒ3J$4fec5bba-9fa2-44f6-86cd-a73c140ba7a6

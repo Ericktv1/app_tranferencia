@@ -569,3 +569,9 @@ G.idea/sonarlint/issuestore/c/1/c190dda42a4834b556947ca0b309df08a6a4ecc6,a\a\aa
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
 B
 cliente.properties,1\7\173d56e2256a21588096c412ca8bbe0b64a39edd
+B
+monitor.properties,7\b\7be130e218f597ccf8f6ff528e5b883ab0e8e4b4
+\
+,src/main/java/org/vinni/monitor/Monitor.java,5\2\522f35a43feae47862fbdb26c4dc993114088c9e
+;
+monitor.log,0\f\0f83cee51b8f494d8964612f5966a4abb1edbc8a

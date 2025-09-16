@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.*;
 import java.net.*;
+import java.util.Arrays;
 import java.util.Properties;
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -28,6 +29,10 @@ public class PrincipalCli extends JFrame {
     private final AtomicBoolean manualDisconnect = new AtomicBoolean(false);
     private final AtomicBoolean reconnecting = new AtomicBoolean(false);
 
+    // Puertos (lista o rango) y "sticky-port" del último exitoso
+    private int[] puertos = new int[] {5000};   // por defecto
+    private int lastPortIndex = -1;             // índice del último puerto exitoso
+
     public PrincipalCli() {
         setTitle("Cliente TCP - Chat y Archivos");
         setSize(600, 420);
@@ -43,9 +48,14 @@ public class PrincipalCli extends JFrame {
         JPanel topPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         topPanel.add(new JLabel("Host:"));
         campoHost = new JTextField("localhost", 10);
+        campoHost.setEditable(false);
+        campoHost.setFocusable(false);
         topPanel.add(campoHost);
         topPanel.add(new JLabel("Puerto:"));
+        // Campo solo informativo; el cliente escanea/elige automáticamente
         campoPuerto = new JTextField("5000", 6);
+        campoPuerto.setEditable(false);
+        campoPuerto.setFocusable(false);
         topPanel.add(campoPuerto);
 
         btnConectar = new JButton("Conectar");
@@ -88,26 +98,82 @@ public class PrincipalCli extends JFrame {
         File propFile = new File("cliente.properties");
         if (!propFile.exists()) {
             appendMensaje("No se encontró cliente.properties; se usan valores por defecto.\n");
+            // Rango por defecto a partir del campo (o 5000) con scan=10
+            int base = parseIntOrDefault(campoPuerto.getText().trim(), 5000);
+            puertos = buildRange(base, 10);
+            campoPuerto.setText(String.valueOf(base)); // informativo
             return;
         }
         try (FileInputStream fis = new FileInputStream(propFile)) {
             Properties p = new Properties();
             p.load(fis);
+
             String host = p.getProperty("server.host");
-            String port = p.getProperty("server.port");
+            if (host != null && !host.isBlank()) campoHost.setText(host.trim());
+
+            // 1) Si hay lista fija, úsala
+            String portsList = p.getProperty("server.ports");
+            if (portsList != null && !portsList.isBlank()) {
+                puertos = parsePorts(portsList);
+                if (puertos.length == 0) {
+                    // lista mal formada -> cae al rango
+                    int base = parseIntOrDefault(p.getProperty("server.basePort"), parseIntOrDefault(campoPuerto.getText().trim(), 5000));
+                    int count = clampScanCount(parseIntOrDefault(p.getProperty("server.scan.count"), 10));
+                    puertos = buildRange(base, count);
+                    campoPuerto.setText(String.valueOf(base));
+                } else {
+                    campoPuerto.setText(String.valueOf(puertos[0])); // informativo
+                }
+            } else {
+                // 2) Rango: basePort + scan.count
+                int base = parseIntOrDefault(p.getProperty("server.basePort"), parseIntOrDefault(campoPuerto.getText().trim(), 5000));
+                int count = clampScanCount(parseIntOrDefault(p.getProperty("server.scan.count"), 10));
+                puertos = buildRange(base, count);
+                campoPuerto.setText(String.valueOf(base));
+            }
+
             String maxA = p.getProperty("reconnect.maxAttempts");
             String delay = p.getProperty("reconnect.delaySeconds");
-
-            if (host != null && !host.isBlank()) campoHost.setText(host.trim());
-            if (port != null && !port.isBlank()) campoPuerto.setText(port.trim());
             if (maxA != null) maxAttempts = Integer.parseInt(maxA.trim());
             if (delay != null) delaySeconds = Integer.parseInt(delay.trim());
 
-            System.out.println("Propiedades cargadas. maxAttempts=" + maxAttempts +
-                    ", delaySeconds=" + delaySeconds + "\n");
+            System.out.println("Propiedades cargadas. puertos=" + Arrays.toString(puertos) +
+                    ", maxAttempts=" + maxAttempts + ", delaySeconds=" + delaySeconds + "\n");
         } catch (Exception e) {
             appendMensaje("Error cargando propiedades: " + e.getMessage() + "\n");
+            int base = parseIntOrDefault(campoPuerto.getText().trim(), 5000);
+            puertos = buildRange(base, 10);
+            campoPuerto.setText(String.valueOf(base));
         }
+    }
+
+    private int[] parsePorts(String csv) {
+        try {
+            return Arrays.stream(csv.split(","))
+                    .map(String::trim)
+                    .filter(s -> !s.isEmpty())
+                    .mapToInt(Integer::parseInt)
+                    .toArray();
+        } catch (Exception e) {
+            return new int[0];
+        }
+    }
+
+    private int parseIntOrDefault(String maybe, int def) {
+        try { return (maybe == null || maybe.isBlank()) ? def : Integer.parseInt(maybe.trim()); }
+        catch (Exception ignored) { return def; }
+    }
+
+    private int clampScanCount(int n) {
+        if (n < 1) return 1;
+        if (n > 200) return 200; // límite sano
+        return n;
+    }
+
+    private int[] buildRange(int basePort, int count) {
+        int[] arr = new int[count];
+        for (int i = 0; i < count; i++) arr[i] = basePort + i;
+        return arr;
     }
 
     /* -------------------- Conexión y reintentos -------------------- */
@@ -119,9 +185,8 @@ public class PrincipalCli extends JFrame {
             int intento = 0;
             while (!manualDisconnect.get()) {
                 intento++;
-                boolean ok = intentarConectarUnaVez();
+                boolean ok = intentarConectarUnaVez(false); // conexión inicial: con logs
                 if (ok) {
-                    appendMensaje("Conectado al servidor.\n");
                     setUiConectado(true);
                     escucharEnHilo();
                     return;
@@ -132,50 +197,95 @@ public class PrincipalCli extends JFrame {
                     return;
                 }
                 dormir(delaySeconds);
-                appendMensaje("Reintentando conectar... (" + (intento + 1) + "/" + maxAttempts + ")\n");
+                appendMensaje("Reintentando conexión (" + (intento + 1) + "/" + maxAttempts + ")...\n");
             }
         }, "reconnect-initial").start();
     }
 
+    // Versión silenciosa para reconexión
     private boolean intentarConectarUnaVez() {
+        return intentarConectarUnaVez(false);
+    }
+
+    /**
+     * @param quiet true para no loguear errores de socket (reconexión silenciosa)
+     */
+    private boolean intentarConectarUnaVez(boolean quiet) {
         String host = campoHost.getText().trim();
-        int puerto;
-        try {
-            puerto = Integer.parseInt(campoPuerto.getText().trim());
-        } catch (NumberFormatException e) {
-            appendMensaje("Puerto inválido.\n");
+
+        int[] orden = buildPortOrder();
+        Socket s = null;
+        int puertoUsado = -1;
+
+        for (int p : orden) {
+            try {
+                s = new Socket();
+                s.connect(new InetSocketAddress(host, p), 3000); // timeout 3s
+                s.setTcpNoDelay(true);
+                puertoUsado = p;
+                lastPortIndex = indexOf(puertos, p);
+                break; // éxito
+            } catch (IOException e) {
+                // probar siguiente SIN log si quiet
+            }
+        }
+
+        if (s == null) {
+            if (!quiet) {
+                appendMensaje("Error: no se pudo conectar a ningún servidor en " + Arrays.toString(puertos) + ".\n");
+            }
             return false;
         }
 
         try {
-            Socket s = new Socket();
-            s.connect(new InetSocketAddress(host, puerto), 3000); // timeout 3s
-            s.setTcpNoDelay(true);
             socket = s;
             dos = new DataOutputStream(new BufferedOutputStream(socket.getOutputStream()));
             dis = new DataInputStream(new BufferedInputStream(socket.getInputStream()));
 
-            // Nombre (si ya teníamos uno, reutilízalo)
             if (nombre == null || nombre.isBlank()) {
                 nombre = JOptionPane.showInputDialog(this, "Ingresa tu nombre:");
                 if (nombre == null || nombre.trim().isEmpty()) nombre = "Cliente" + socket.getLocalPort();
             }
-            // El servidor primero envía "INGRESE_NOMBRE" (según tu server)
+
             String prompt = dis.readUTF();
             if ("INGRESE_NOMBRE".equals(prompt)) {
                 dos.writeUTF(nombre);
                 dos.flush();
             } else {
-                // Si el servidor no envió prompt, igual mandamos el nombre por compatibilidad
                 dos.writeUTF(nombre);
                 dos.flush();
             }
+
+            appendMensaje("Conectado al servidor en puerto " + puertoUsado + ".\n");
+            campoPuerto.setText(String.valueOf(puertoUsado)); // informativo
             return true;
+
         } catch (IOException e) {
-            appendMensaje("Error conectando: " + e.getMessage() + "\n");
-            cerrarSilencioso(); // limpia recursos parciales
+            if (!quiet) appendMensaje("Error conectando: " + e.getMessage() + "\n");
+            cerrarSilencioso();
             return false;
         }
+    }
+
+    // Orden de puertos: primero el último exitoso, luego el resto
+    private int[] buildPortOrder() {
+        if (puertos == null || puertos.length == 0) puertos = new int[] {5000};
+        if (lastPortIndex < 0 || lastPortIndex >= puertos.length) {
+            return Arrays.copyOf(puertos, puertos.length);
+        }
+        int[] orden = new int[puertos.length];
+        orden[0] = puertos[lastPortIndex];
+        int k = 1;
+        for (int i = 0; i < puertos.length; i++) {
+            if (i == lastPortIndex) continue;
+            orden[k++] = puertos[i];
+        }
+        return orden;
+    }
+
+    private int indexOf(int[] arr, int val) {
+        for (int i = 0; i < arr.length; i++) if (arr[i] == val) return i;
+        return -1;
     }
 
     private void escucharEnHilo() {
@@ -221,11 +331,11 @@ public class PrincipalCli extends JFrame {
         } catch (IOException e) {
             appendMensaje("Conexión perdida con el servidor.\n");
         } finally {
-            // Intentar reconectar si NO fue desconexión manual
+            // Reconexión silenciosa (quiet=true)
             if (!manualDisconnect.get()) {
                 intentarReconexion();
             } else {
-                desconectar(); // limpia UI
+                desconectar();
             }
         }
     }
@@ -239,7 +349,7 @@ public class PrincipalCli extends JFrame {
             while (!manualDisconnect.get()) {
                 intento++;
                 appendMensaje("Reintentando conexión (" + intento + "/" + maxAttempts + ")...\n");
-                boolean ok = intentarConectarUnaVez();
+                boolean ok = intentarConectarUnaVez(true); // QUIET
                 if (ok) {
                     appendMensaje("Reconectado.\n");
                     setUiConectado(true);
