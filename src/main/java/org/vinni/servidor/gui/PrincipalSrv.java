@@ -44,6 +44,8 @@ public class PrincipalSrv extends JFrame {
         JPanel topPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         topPanel.add(new JLabel("Puerto:"));
         campoPuerto = new JTextField("5000", 8);
+        campoPuerto.setEditable(false);
+        campoPuerto.setFocusable(false);
         topPanel.add(campoPuerto);
 
         btnIniciar = new JButton("Iniciar Servidor");

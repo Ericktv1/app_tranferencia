@@ -55,6 +55,10 @@ public class Monitor {
 
         // Número de instancias: propiedad o diálogo
         int instances = (fixedInstances != null) ? fixedInstances : askInstancesWithGui(1);
+        if (instances <= 0) {
+            log("Cancelado por el usuario. No se lanzan servidores.");
+            return; // ⬅️ salimos sin iniciar watchers
+        }
         log("Instancias solicitadas: " + instances);
 
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
@@ -102,7 +106,7 @@ public class Monitor {
             return Math.max(1, Math.min(200, n));
         }
         // Si cancelan, usar 1
-        return Math.max(1, defaultVal);
+        return 0;
     }
 
     /* ---------------- watcher por puerto ---------------- */
